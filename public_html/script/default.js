@@ -45,13 +45,46 @@ angular
   	$scope.queue = [];
   	$scope.updates = [];
   	$scope.title = null;
+  	$scope.regionFilter = { US: true };
+  	$scope.sortReverse = false;
+  	$scope.sortPropertyName = 'name';
+
+  	$scope.getTitle = function (id) {
+  		return $scope.titlesDict[id];
+  	};
+
+  	$scope.sortBy = function (sortPropertyName) {
+  		$scope.sortReverse = ($scope.sortPropertyName === sortPropertyName) ? !$scope.sortReverse : false;
+  		$scope.sortPropertyName = sortPropertyName;
+  	};
+
+  	$scope.titleFilter = function (title) {
+
+  		if (!title.region || $scope.regionFilter[title.region]) {
+  			return true;
+  		}
+
+  		return false;
+  	};
 
   	$http.get('/api/titles').then(function (res) {
   		titles = [];
   		titlesDict = {};
   		for (key in res.data) {
   			title = res.data[key];
-  			if (!title.isUpdate && !title.isDLC && !title.isDemo && title.key != '00000000000000000000000000000000') {
+  			if (!title.isUpdate && !title.isDLC && !title.isDemo /*&& title.key != '00000000000000000000000000000000'*/) {
+  				if (title.publisher == 'Nintendo') {
+  					title.span = { col: 3, row: 3 };
+					title.thumbSize = 640
+  				} else if (['Bethesda Softworks', 'Team Cherry', 'Capcom', 'Motion Twin', 'Ubisoft', 'Activision', 'Mojang AB', 'Shin\'en', 'NIS America'].includes(title.publisher)) {
+  					title.span = { col: 2, row: 2 };
+  					title.thumbSize = 384
+  				} else {
+  					title.span = { col: 1, row: 1 };
+  					title.thumbSize = 192
+  				}
+  				title.currentVersion = 0;
+  				title.size = formatNumber(title.size, 'B');
   				title.children = [];
   				titlesDict[title.id] = title;
   				titles.push(title);
@@ -67,6 +100,32 @@ angular
   				}
   			}
   		}
+
+  		for (key in res.data) {
+  			title = res.data[key];
+  			if (!title.isUpdate && !title.isDLC) {
+  				title.latestVersion = titlesDict[title.id.substring(0, title.id.length - 3) + '800'].version;
+  			}
+  		}
+
+  		$http.get('/api/files').then(function (res) {
+  			for (key in res.data) {
+  				nsp = res.data[key];
+  				title = titlesDict[key];
+  				if (title) {
+  					title.base = nsp.base;
+  					title.dlc = nsp.dlc;
+  					title.update = nsp.update;
+
+  					for (i = 0; i < title.update.length; i++) {
+  						f = title.update[i];
+  						if (f.version >= title.currentVersion) {
+  							title.currentVersion = f.version;
+  						}
+  					}
+  				}
+  			}
+  		});
   		$scope.titles = titles;
   		$scope.titlesDict = titlesDict;
   	});
@@ -161,6 +220,16 @@ angular
   		$http.get('/api/download/' + id).then(function (res) {
   		});
   	};
+
+  	$scope.preload = function (id) {
+  		$http.get('/api/preload/' + id).then(function (res) {
+  		});
+  	};
+
+  	$scope.regionChanged = function (region) {
+  		$scope.regionFilter[region] = $scope.regionFilter[region] ? false : true;
+  	};
+
   }).filter('unique', function () {
   	return function (collection, keyname) {
   		var output = [],

@@ -22,33 +22,71 @@
 <body>
 	<div id="titles" ng-controller="gridTitlesController as vm" flex ng-cloak>
 		<header>
-			<a id="logo" href="http://github.com/blawar/nut"><img src="/images/logo.jpg" /></a>
-			<div class="right">
-				<input type="text" ng-model="searchText" id="search" placeholder="Search">
-				<button class="queue" ng-click="showQueue()">Options</button>
-				<button class="updates" ng-click="showUpdates()">Title Updates</button>
-				<button class="gear" ng-click="showOptions()">Options</button>
-				<ul id="regions" ng-repeat="title in titles | unique:'region'">
-					<li class="{{title.region}}">
-						<input name="region_{{title.region}}" id="region_{{title.region}}" type="checkbox" />
-						<label for="region_{{title.region}}">{{title.region}}</label>
-					</li>
-				</ul>
-			</div>
+			<ul>
+				<li class="left">
+					<a id="logo" href="/"><img src="/images/logo.jpg" /></a>
+					<input type="text" ng-model="searchText" id="search" placeholder="Search">
+					<button class="gear" ng-click="showOptions()" title="Settings">Settings</button>
+					<button class="update" ng-click="showUpdates()" title="Updates Available">Title Updates</button>
+					<button class="queue" ng-click="showQueue()" title="Download Queue">Queue</button>
+				</li>
+				<li class="center">
+					<ul id="sorts">
+						<li>
+							<a ng-click="sortBy('name')">Name<span class="sortorder" ng-show="sortPropertyName === 'name'" ng-class="{sortReverse: sortReverse}"></span></a>
+						</li>
+						<li>
+							<a ng-click="sortBy('releaseDate')">Release Date</a>
+						</li>
+						<li>
+							<a ng-click="sortBy('publisher')">Publisher</a>
+						</li>
+					</ul>
+				</li>
+				<li class="right">
+					<ul id="regions">
+						<li class="{{title.region}} rgn_{{title.region}}" ng-repeat="title in titles | unique:'region'">
+							<input ng-checked="title.region == 'US'" name="region_{{title.region}}" id="region_{{title.region}}" type="checkbox" ng-click="regionChanged(title.region)" />
+							<label for="region_{{title.region}}">{{title.region}}</label>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</header>
 		<md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6" md-cols-gt-lg="10"
 					  md-row-height-gt-md="1:1" md-row-height="4:3"
 					  md-gutter="8px" md-gutter-gt-sm="4px">
 
-			<md-grid-tile ng-repeat="title in titles | filter:searchText" md-rowspan="{{tile.span.row}}" md-colspan="{{tile.span.col}}" md-colspan-sm="1" md-colspan-xs="1" ng-class="tile.background" style="background-image: url(/api/titleImage/{{title.baseId }}/192)" data-title-id="{{title.id}}" ng-click="showTitle(title)">
+			<md-grid-tile ng-repeat="title in titles | filter:searchText | filter:titleFilter | orderBy:sortPropertyName:sortReverse" md-rowspan="{{title.span.row}}" md-colspan="{{title.span.col}}" md-colspan-sm="1" md-colspan-xs="1" ng-class="tile.background" style="background-image: url(/api/titleImage/{{title.baseId }}/{{title.thumbSize}})" data-title-id="{{title.id}}" ng-click="showTitle(title)">
 				<md-grid-tile-footer><h3>{{title.name}}</h3></md-grid-tile-footer>
 			</md-grid-tile>
 		</md-grid-list>
 		<div id="popup">
-			<div id="game" style="background-image: url(/images/titles/{{title.id}}/banner.jpg)">
-				<h3>{{title.name}}</h3>
-				<div class="controls">
-					<button class="button" ng-click="download(title.id)">Download</button>
+			<div id="game" style="background-image: url(/api/bannerImage/{{title.baseId }}/)">
+				<h3 class="{{title.region}}">{{title.name}} - {{title.publisher}}<label>{{title.region}}</label></h3>
+				<header>
+					<div class="boxart"><img src="/api/frontArtBoxImage/{{title.id}}/" /></div>
+					<ul>
+						<li><label>Release Date</label><span>{{title.releaseDate}}</span></li>
+						<li><label>Version</label><span>{{title.latestVersion}}</span></li>
+						<li><label>Size</label><span>{{title.size}}</span></li>
+						<li><label>ID</label><span>{{title.id}}</span></li>
+					</ul>
+					<a class="update" title="Update available" ng-show="title.currentVersion < title.latestVersion" ng-click="preload(title.id.substring(0, title.id.length - 3) + '800')">Update</a>
+					<a class="download" href="/api/download/{{title.id}}">Download</a>
+				</header>
+				<div id="dlc">
+					<table>
+						<tr ng-repeat="dlc in title.dlc">
+							<td>{{getTitle(dlc.titleId).name}}</td>
+							<td>{{dlc.version}}</td>
+							<td><button class="update" title="Update available" ng-show="getTitle(dlc.titleId).version > dlc.version" ng-click="preload(dlc.titleId)">Update</button></td>
+							<td><a class="download" href="/api/download/{{getTitle(dlc.titleId).id}}">Download</a></td>
+						</tr>
+					</table>
+				</div>
+				<div class="description">
+					<pre>{{title.description}}</pre>
 				</div>
 			</div>
 			<div id="options">
@@ -101,7 +139,7 @@
 								<td>{{t.name}}</td>
 								<td>{{t.currentVersion}}</td>
 								<td>{{t.newVersion}}</td>
-								<td><button class="button" ng-click="download(t.id)">Download</button></td>
+								<td><button class="download" ng-click="download(t.id)">Download</button></td>
 							</tr>
 						</tbody>
 					</table>

@@ -65,8 +65,22 @@ def loadTitleBuffer(buffer, silent = False):
 		if not silent and titleKey != titles[t.id].key:
 			Print.info('Added new title key for ' + str(titles[t.id].name) + '[' + str(t.id) + ']')
 
-	
+confLock = threading.Lock()	
 def load():
+	confLock.acquire()
+	global titles
+	if os.path.isfile("titles.json"):
+		timestamp = time.clock()
+		with open('titles.json', encoding="utf-8-sig") as f:
+			for i, k in json.loads(f.read()).items():
+				#if k['frontBoxArt'] and k['frontBoxArt'].endswith('.jpg'):
+				#	k['iconUrl'] = k['frontBoxArt']
+				#	k['frontBoxArt'] = None
+				titles[i] = Title.Title()
+				titles[i].__dict__ = k
+
+		Print.info('loaded titles.json in ' + str(time.clock() - timestamp) + ' seconds')
+
 	if os.path.isfile("titles.txt"):
 		loadTitleFile('titles.txt', True)
 
@@ -78,9 +92,10 @@ def load():
 			loadTitleFile(Config.paths.titleDatabase + '/' + file, False)
 	except BaseException as e:
 		Print.error('title load error: ' + str(e))
+	confLock.release()
 
 	
-def save(fileName = 'titles.txt', map = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'retailOnly']):
+def export(fileName = 'titles.txt', map = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'retailOnly']):
 	buffer = ''
 	
 	buffer += '|'.join(map) + '\n'
@@ -89,6 +104,22 @@ def save(fileName = 'titles.txt', map = ['id', 'rightsId', 'key', 'isUpdate', 'i
 		
 	with open(fileName, 'w', encoding='utf-8') as csv:
 		csv.write(buffer)
+
+def save(fileName = 'titles.json'):
+	confLock.acquire()
+	try:
+		j = {}
+		for i,k in titles.items():
+			if k.description:
+				k.description = k.description.strip()
+			j[i] = k.__dict__
+		with open(fileName, 'w') as outfile:
+			json.dump(j, outfile, indent=4, sort_keys=True)
+	except:
+		confLock.release()
+		raise
+
+	confLock.release()
 
 class Queue:
 	def __init__(self):

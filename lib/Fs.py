@@ -744,9 +744,6 @@ class Nsp(PFS0):
 		z = re.match('.*\[([a-zA-Z0-9]{16})\].*', path, re.I)
 		if z:
 			self.titleId = z.groups()[0].upper()
-			
-			if self.titleId:
-				self.title().path = path
 		else:
 			Print.info('could not get title id from filename, name needs to contain [titleId] : ' + path)
 			self.titleId = None
@@ -797,8 +794,6 @@ class Nsp(PFS0):
 		except BaseException as e:
 			Print.info('failed to rename file! %s -> %s  : %s' % (self.path, self.fileName(), e))
 		
-		if self.titleId in Titles.keys():
-			Titles.get(self.titleId).path = self.fileName()
 		return True
 		
 	def cleanFilename(self, s):
@@ -806,6 +801,9 @@ class Nsp(PFS0):
 		s = re.sub('\s*\[DLC\]\s*', '', s, re.I)
 		s = re.sub('[\/\\\:\*\?\"\<\>\|\.\s™©®()\~]+', ' ', s)
 		return s.strip()
+
+	def dict(self):
+		return {"titleId": self.titleId, "hasValidTicket": self.hasValidTicket, 'version': self.version, 'timestamp': self.timestamp, 'path': self.path }
 		
 	def fileName(self):
 		bt = None

@@ -30,6 +30,7 @@ import Status
 import time
 import colorama
 import Server
+import pprint
 
 
 				
@@ -110,6 +111,21 @@ def updateDb(url):
 global status
 status = None
 
+global scrapeThreads
+scrapeThreads = 10
+
+def scrapeThread(id, delta = True):
+	size = len(Titles.titles) // scrapeThreads
+	st = Status.create(size, 'Thread ' + str(id))
+	for i,titleId in enumerate(Titles.titles.keys()):
+		try:
+			if (i - id) % scrapeThreads == 0:
+				Titles.get(titleId).scrape(delta)
+				st.add()
+		except BaseException as e:
+			Print.error(str(e))
+	st.close()
+
 global activeDownloads
 activeDownloads = []
 
@@ -168,7 +184,7 @@ def downloadAll(wait = True):
 		startDownloadThreads()
 
 		for k,t in Titles.items():
-			if not t.path and not t.retailOnly and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
+			if len(t.getFiles()) == 0 and not t.retailOnly and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
 				if not t.id or t.id == '0' * 16 or (t.isUpdate and t.lastestVersion() in [None, '0']):
 					#Print.warning('no valid id? ' + str(t.path))
 					continue
@@ -394,6 +410,10 @@ if __name__ == '__main__':
 	parser.add_argument('-S', '--server', action="store_true", help='Run server daemon')
 	parser.add_argument('-m', '--hostname', action="store_true", help='Set server hostname')
 	parser.add_argument('-p', '--port', action="store_true", help='Set server port')
+
+	parser.add_argument('--scrape', action="store_true", help='Scrape ALL titles from Nintendo servers')
+	parser.add_argument('--scrape-delta', action="store_true", help='Scrape ALL titles from Nintendo servers that have not been scraped yet')
+	parser.add_argument('--scrape-title', help='Scrape title from Nintendo servers')
 		
 	args = parser.parse_args()
 
@@ -567,6 +587,33 @@ if __name__ == '__main__':
 			#f.flush()
 			#f.close()
 			'''
+
+	if args.scrape_title:
+		initTitles()
+		initFiles()
+
+		if not Titles.contains(args.scrape_title):
+			Print.error('Could not find title ' + args.scrape_title)
+		else:
+			Titles.get(args.scrape_title).scrape(False)
+			Titles.save()
+			#Print.info(repr(Titles.get(args.scrape_title).__dict__))
+			pprint.pprint(Titles.get(args.scrape_title).__dict__)
+
+	if args.scrape or args.scrape_delta:
+		initTitles()
+		initFiles()
+
+		threads = []
+		for i in range(scrapeThreads):
+			t = threading.Thread(target=scrapeThread, args=[i, args.scrape_delta])
+			t.start()
+			threads.append(t)
+
+		for t in threads:
+			t.join()
+		
+		Titles.save()
 			
 	
 	if args.Z:
