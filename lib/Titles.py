@@ -13,6 +13,9 @@ import threading
 global titles
 titles = {}
 
+if os.path.isfile('titles.json'):
+	os.rename('titles.json', 'titledb/titles.json')
+
 def data():
 	return titles
 
@@ -51,6 +54,16 @@ def loadTitleBuffer(buffer, silent = False):
 			firstLine = False
 			if re.match('[A-Za-z\|\s]+', line, re.I):
 				map = line.split('|')
+				
+				i = 0
+				while i < len(map):
+					if map[i] == 'RightsID':
+						map[i] = 'id'
+					if map[i] == 'TitleKey':
+						map[i] = 'key'
+					if map[i] == 'Name':
+						map[i] = 'name'
+					i += 1
 				continue
 		
 		t = Title.Title()
@@ -69,9 +82,9 @@ confLock = threading.Lock()
 def load():
 	confLock.acquire()
 	global titles
-	if os.path.isfile("titles.json"):
+	if os.path.isfile("titledb/titles.json"):
 		timestamp = time.clock()
-		with open('titles.json', encoding="utf-8-sig") as f:
+		with open('titledb/titles.json', encoding="utf-8-sig") as f:
 			for i, k in json.loads(f.read()).items():
 				#if k['frontBoxArt'] and k['frontBoxArt'].endswith('.jpg'):
 				#	k['iconUrl'] = k['frontBoxArt']
@@ -79,7 +92,7 @@ def load():
 				titles[i] = Title.Title()
 				titles[i].__dict__ = k
 
-		Print.info('loaded titles.json in ' + str(time.clock() - timestamp) + ' seconds')
+		Print.info('loaded titledb/titles.json in ' + str(time.clock() - timestamp) + ' seconds')
 
 	if os.path.isfile("titles.txt"):
 		loadTitleFile('titles.txt', True)
@@ -105,16 +118,18 @@ def export(fileName = 'titles.txt', map = ['id', 'rightsId', 'key', 'isUpdate', 
 	with open(fileName, 'w', encoding='utf-8') as csv:
 		csv.write(buffer)
 
-def save(fileName = 'titles.json'):
+def save(fileName = 'titledb/titles.json'):
 	confLock.acquire()
 	try:
 		j = {}
 		for i,k in titles.items():
+			if not k.id or k.id == '0000000000000000':
+				continue
 			if k.description:
 				k.description = k.description.strip()
-			j[i] = k.__dict__
+			j[k.id] = k.__dict__
 		with open(fileName, 'w') as outfile:
-			json.dump(j, outfile, indent=4, sort_keys=True)
+			json.dump(j, outfile, indent=4)
 	except:
 		confLock.release()
 		raise
@@ -127,10 +142,10 @@ class Queue:
 		self.lock = threading.Lock()
 		self.i = 0
 
-	def add(self, id):
+	def add(self, id, skipCheck = False):
 		self.lock.acquire()
 		id = id.upper()
-		if not id in self.queue and self.isValid(id):
+		if not id in self.queue and (skipCheck or self.isValid(id)):
 			self.queue.append(id)
 		self.lock.release()
 
@@ -159,11 +174,10 @@ class Queue:
 
 	def load(self):
 		try:
-			with open('queue.txt', encoding="utf-8-sig") as f:
+			with open('conf/queue.txt', encoding="utf-8-sig") as f:
 				for line in f.read().split('\n'):
 					self.add(line.strip())
 		except BaseException as e:
-			Print.error('Queue load error: ' + str(e))
 			pass
 
 	def size(self):
@@ -172,7 +186,7 @@ class Queue:
 	def save(self):
 		self.lock.acquire()
 		try:
-			with open('queue.txt', 'w', encoding='utf-8') as f:
+			with open('conf/queue.txt', 'w', encoding='utf-8') as f:
 				for id in self.queue:
 					f.write(id + '\n')
 		except:

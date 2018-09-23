@@ -6,10 +6,13 @@ import time
 import Config
 import sys
 import os
+import re
 import Print
 import urllib
+import Users
+import base64
 
-import Web.Api
+import Server.Controller.Api
 
 
 global httpd
@@ -72,24 +75,43 @@ def run():
 class NutRequest:
 	def __init__(self, handler):
 		self.handler = handler
+		self.headers = handler.headers
 		self.path = handler.path
+		self.head = False
 		self.bits = [x for x in self.path.split('/') if x]
+		self.user = None
+
+	def setHead(self, h):
+		self.head = h
 
 class NutResponse:
 	def __init__(self, handler):
 		self.handler = handler
 		self.bytesSent = 0
 		self.status = 200
+		self.head = False
+		self.headersSent = False
 		self.headers = {'Content-type': 'text/html'}
+
+	def setHead(self, h):
+		self.head = h
 
 	def setStatus(self, s):
 		self.status = s
 
-	def setMime(self, fileName):
-		name, ext = os.path.splitext(fileName)
+	def setHeader(self, k, v):
+		self.headers[k] = v
 
-		if ext in mimes:
-			self.headers['Content-type'] = mimes[ext]
+	def setMime(self, fileName):
+		try:
+			name, ext = os.path.splitext(fileName)
+
+			if ext in mimes:
+				self.headers['Content-type'] = mimes[ext]
+			else:
+				raise IOError('Mime not found')
+		except:
+			pass
 
 	def attachFile(self, fileName):
 		Print.info('Attaching file ' + fileName)
@@ -103,9 +125,10 @@ class NutResponse:
 			self.handler.send_header(k, v)
 
 		self.handler.end_headers()
+		self.headersSent = True
 
 	def write(self, data):
-		if self.bytesSent == 0:
+		if self.bytesSent == 0 and not self.headersSent:
 			self.sendHeader()
 
 		if type(data) == str:
@@ -115,6 +138,10 @@ class NutResponse:
 
 		return self.handler.wfile.write(data)
 
+def Response400(request, response, error='400'):
+	response.setStatus(400)
+	response.write(error)
+
 def Response404(request, response):
 	response.setStatus(404)
 	response.write('404')
@@ -123,21 +150,59 @@ def Response500(request, response):
 	response.setStatus(500)
 	response.write('500')
 
+def Response401(request, response):
+	response.setStatus(401)
+	response.headers['WWW-Authenticate'] = 'Basic realm=\"Nut\"'
+	response.write('401')
+
 
 class NutHandler(http.server.BaseHTTPRequestHandler):
 	def __init__(self, *args):
-		self.mappings = {'api': Web.Api}
+		self.basePath = os.path.abspath('.')
+		self.mappings = {'api': Server.Controller.Api}
 		super(NutHandler, self).__init__(*args)
 
 	def do_HEAD(self):
-		self.send_response(200)
-		self.send_header('Content-type', 'text/html')
-		self.end_headers()
+		request = NutRequest(self)
+		response = NutResponse(self)
+		request.setHead(True)
+		response.setHead(True)
+		
+		if self.headers['Authorization'] == None:
+			return Response401(request, response)
+
+		id, password = base64.b64decode(self.headers['Authorization'].split(' ')[1]).decode().split(':')
+
+		request.user = Users.auth(id, password, self.client_address[0])
+
+		if not request.user:
+			return Response401(request, response)
+		
+		try:
+			if len(request.bits) > 0 and request.bits[0] in self.mappings:
+				i = request.bits[1]
+				methodName = 'get' + i[0].capitalize() + i[1:]
+				method = getattr(self.mappings[request.bits[0]], methodName, Response404)
+				method(request, response)
+			else:
+				self.handleFile(request, response)
+		except BaseException as e:
+				self.wfile.write(Response500(request, response))
 
 	def do_GET(self):
 		request = NutRequest(self)
 		response = NutResponse(self)
+		
+		if self.headers['Authorization'] == None:
+			return Response401(request, response)
 
+		id, password = base64.b64decode(self.headers['Authorization'].split(' ')[1]).decode().split(':')
+
+		request.user = Users.auth(id, password, self.client_address[0])
+
+		if not request.user:
+			return Response401(request, response)
+		
 		try:
 			if len(request.bits) > 0 and request.bits[0] in self.mappings:
 				i = request.bits[1]
@@ -151,6 +216,8 @@ class NutHandler(http.server.BaseHTTPRequestHandler):
 
 	def handleFile(self, request, response):
 		path = os.path.abspath('public_html' + self.path)
+		if not path.startswith(self.basePath):
+			raise IOError('invalid path requested: ' + self.basePath + ' vs ' + path)
 
 		if os.path.isdir(path):
 			path += '/index.html'

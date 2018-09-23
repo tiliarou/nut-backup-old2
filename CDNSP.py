@@ -23,6 +23,7 @@ import unidecode
 import urllib3
 import Print
 import Status
+import Config
 
 #Global Vars
 titlekey_list = []
@@ -152,8 +153,7 @@ def make_request(method, url, certificate='', hdArgs={}):
 	r = requests.request(method, url, cert=certificate, headers=reqHd, verify=False, stream=True)
 
 	if r.status_code == 403:
-		Print.error('Request rejected by server! Check your cert.')
-		return r
+		raise IOError('Request rejected by server! Check your cert')
 
 	return r
 
@@ -268,6 +268,9 @@ def download_file(url, fPath, titleId = None):
 			f.write(chunk)
 			s.add(len(chunk))
 			dlded += len(chunk)
+
+			if not Config.isRunning:
+				break
 		s.close()
 	else:
 		f.write(r.content)
@@ -318,7 +321,7 @@ def verify_NCA(ncaFile, titleKey):
 	try:
 		output = str(subprocess.check_output(commandLine, stderr=subprocess.STDOUT, shell=True))
 	except subprocess.CalledProcessError as exc:
-		Print.error("Status : FAIL", exc.returncode, exc.output)
+		Print.error("Status : FAIL" + str(exc.returncode) + ', ' + str(exc.output))
 		return False
 	else:
 		if "Error: section 0 is corrupted!" in output or "Error: section 1 is corrupted!" in output:
@@ -371,7 +374,7 @@ def download_title(gameDir, titleId, ver, tkey=None, nspRepack=False, n='', veri
 		try:
 			r = make_request('HEAD', url)
 		except Exception as e:
-			Print.error("Error downloading title. Check for incorrect titleid or version.")
+			Print.error("Error downloading title. Check for incorrect titleid or version: " + str(e))
 			return
 		CNMTid = r.headers.get('X-Nintendo-Content-ID')
 
@@ -402,7 +405,7 @@ def download_title(gameDir, titleId, ver, tkey=None, nspRepack=False, n='', veri
 					with open(os.path.join(os.path.dirname(__file__), 'Ticket.tik'), 'rb') as intik:
 						data = bytearray(intik.read())
 						data[0x180:0x190] = uhx(tkey)
-						data[0x286] = int(CNMT.mkeyrev)
+						data[0x285] = int(CNMT.mkeyrev)
 						data[0x2A0:0x2B0] = uhx(rightsID)
 
 						with open(tikPath, 'wb') as outtik:
@@ -412,7 +415,7 @@ def download_title(gameDir, titleId, ver, tkey=None, nspRepack=False, n='', veri
 					with open(os.path.join(os.path.dirname(__file__), 'Ticket.tik'), 'rb') as intik:
 						data = bytearray(intik.read())
 						data[0x180:0x190] = uhx('00000000000000000000000000000000')
-						data[0x286] = int(CNMT.mkeyrev)
+						data[0x285] = int(CNMT.mkeyrev)
 						data[0x2A0:0x2B0] = uhx(rightsID)
 
 						with open(tikPath, 'wb') as outtik:

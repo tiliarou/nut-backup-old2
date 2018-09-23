@@ -49,27 +49,31 @@ def scan(base):
 
 	status = Status.create(len(fileList), desc = 'Scanning files...')
 
+	try:
+		for path, name in fileList.items():
+			try:
+				status.add(1)
 
-	for path, name in fileList.items():
-		try:
-			status.add(1)
-
-			if not path in files:
-				Print.info('scanning ' + name)
-				nsp = Fs.Nsp(path, None)
+				if not path in files:
+					Print.info('scanning ' + name)
+					nsp = Fs.Nsp(path, None)
 						
-				files[nsp.path] = nsp
-				#files[nsp.path].readMeta()
+					files[nsp.path] = nsp
+					#files[nsp.path].readMeta()
 
-				i = i + 1
-				if i % 20 == 0:
-					save()
-		except KeyboardInterrupt:
-			raise
-		except BaseException as e:
-			Print.info('An error occurred processing file: ' + str(e))
-	save()
-	status.close()
+					i = i + 1
+					if i % 20 == 0:
+						save()
+			except KeyboardInterrupt:
+				status.close()
+				raise
+			except BaseException as e:
+				Print.info('An error occurred processing file: ' + str(e))
+				status.close()
+		save()
+		status.close()
+	except BaseException as e:
+		Print.info('An error occurred scanning files: ' + str(e))
 
 def removeEmptyDir(path, removeRoot=True):
 	if not os.path.isdir(path):
@@ -90,7 +94,7 @@ def removeEmptyDir(path, removeRoot=True):
 		Print.info("Removing empty folder:" + path)
 		os.rmdir(path)
 
-def load(fileName = 'files.json'):
+def load(fileName = 'titledb/files.json'):
 	global hasLoaded
 
 	if hasLoaded:
@@ -115,12 +119,11 @@ def load(fileName = 'files.json'):
 					path = os.path.abspath(t.path)
 					if os.path.isfile(path): 
 						files[path] = t #Fs.Nsp(path, None)
-		print('could not load files file')
 	except:
 		raise
 	Print.info('loaded file list in ' + str(time.clock() - timestamp) + ' seconds')
 
-def save(fileName = 'files.json', map = ['id', 'path', 'version', 'timestamp', 'hasValidTicket']):
+def save(fileName = 'titledb/files.json', map = ['id', 'path', 'version', 'timestamp', 'hasValidTicket']):
 	lock.acquire()
 
 	try:
@@ -133,3 +136,6 @@ def save(fileName = 'files.json', map = ['id', 'path', 'version', 'timestamp', '
 		lock.release()
 		raise
 	lock.release()
+
+if os.path.isfile('files.json'):
+	os.rename('files.json', 'titledb/files.json')

@@ -48,6 +48,22 @@ angular
   	$scope.regionFilter = { US: true };
   	$scope.sortReverse = false;
   	$scope.sortPropertyName = 'name';
+  	$scope.user = null;
+
+  	$scope.ownedOptions = [
+		{ id: 0, name: '' },
+		{ id: 1, name: 'Purchased' },
+		{ id: -1, name: 'Not Purchased' }
+  	];
+
+  	$scope.preloadedOptions = [
+		{ id: 0, name: '' },
+		{ id: 1, name: 'Preloaded' },
+		{ id: -1, name: 'Not Preloaded' }
+  	];
+
+  	$scope.ownedFilter = $scope.ownedOptions[1];
+  	$scope.preloadedFilter = $scope.preloadedOptions[0];
 
   	$scope.getTitle = function (id) {
   		return $scope.titlesDict[id];
@@ -60,12 +76,16 @@ angular
 
   	$scope.titleFilter = function (title) {
 
-  		if (!title.region || $scope.regionFilter[title.region]) {
+  		if ((!title.region || $scope.regionFilter[title.region]) && ($scope.ownedFilter.id != 1 || title.key) && ($scope.preloadedFilter.id != 1 || (title.base && title.base.length > 0)) && ($scope.preloadedFilter.id != -1 || !title.base || title.base.length < 1) && ($scope.ownedFilter.id != -1 || !title.key)) {
   			return true;
   		}
 
   		return false;
   	};
+
+  	$http.get('/api/user').then(function (res) {
+  		$scope.user = res.data;
+  	});
 
   	$http.get('/api/titles').then(function (res) {
   		titles = [];
@@ -96,6 +116,9 @@ angular
   				titlesDict[title.id] = title;
 
   				if (title.baseId != title.id && titlesDict[title.baseId] !== undefined) {
+  					if (!titlesDict[title.baseId].children) {
+  						titlesDict[title.baseId].children = [];
+  					}
   					titlesDict[title.baseId].children.push(title);
   				}
   			}
@@ -103,8 +126,13 @@ angular
 
   		for (key in res.data) {
   			title = res.data[key];
-  			if (!title.isUpdate && !title.isDLC) {
-  				title.latestVersion = titlesDict[title.id.substring(0, title.id.length - 3) + '800'].version;
+  			if (!title.isUpdate && !title.isDLC && title.id) {
+  				updateId = title.id.substring(0, title.id.length - 3) + '800';
+  				if (titlesDict[updateId]) {
+  					title.latestVersion = titlesDict[updateId].version;
+  				} else {
+  					title.latestVersion = 0;
+  				}
   			}
   		}
 

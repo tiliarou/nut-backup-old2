@@ -1,10 +1,9 @@
 from enum import IntEnum
-import Type
+import Fs.Type
 import aes128
 import Print
 import Hex
 from binascii import hexlify as hx, unhexlify as uhx
-
 
 class BaseFile:
 	def __init__(self, path = None, mode = None, cryptoType = -1, cryptoKey = -1, cryptoCounter = -1):
@@ -13,7 +12,7 @@ class BaseFile:
 		self.f = None
 		self.crypto = None
 		self.cryptoKey = None
-		self.cryptoType = Type.Crypto.NONE
+		self.cryptoType = Fs.Type.Crypto.NONE
 		self.cryptoCounter = None
 		self.isPartition = False
 		self._children = []
@@ -131,14 +130,14 @@ class BaseFile:
 		if from_what == 0:
 			# seek from begining				
 			self.f.seek(self.offset + offset)
-			#if self.cryptoType == Type.Crypto.CTR:
+			#if self.cryptoType == Fs.Type.Crypto.CTR:
 			#	self.crypto.set_ctr(self.setCounter(self.offset + self.tell()))
 			return
 		elif from_what == 1:
 			# seek from current position
 			self.f.seek(self.offset + offset)
 
-			#if self.cryptoType == Type.Crypto.CTR:
+			#if self.cryptoType == Fs.Type.Crypto.CTR:
 			#	self.crypto.set_ctr(self.setCounter(self.offset + self.tell()))
 			return
 		elif from_what == 2:
@@ -148,7 +147,7 @@ class BaseFile:
 
 			self.f.seek(self.offset + offset + self.size)
 
-			#if self.cryptoType == Type.Crypto.CTR:
+			#if self.cryptoType == Fs.Type.Crypto.CTR:
 			#	self.crypto.set_ctr(self.setCounter(self.offset + self.tell()))
 			return
 			
@@ -170,17 +169,17 @@ class BaseFile:
 		if cryptoCounter != -1:
 			self.cryptoCounter = cryptoCounter
 			
-		if self.cryptoType == Type.Crypto.CTR:
+		if self.cryptoType == Fs.Type.Crypto.CTR:
 			if self.cryptoKey:
 				self.crypto = aes128.AESCTR(self.cryptoKey, self.setCounter(self.offset))
-				self.cryptoType = Type.Crypto.CTR
+				self.cryptoType = Fs.Type.Crypto.CTR
 			
 				self.enableBufferedIO(0x10, 0x10)
 
-		elif self.cryptoType == Type.Crypto.XTS:
+		elif self.cryptoType == Fs.Type.Crypto.XTS:
 			if self.cryptoKey:
 				self.crypto = aes128.AESXTS(self.cryptoKey)
-				self.cryptoType = Type.Crypto.XTS
+				self.cryptoType = Fs.Type.Crypto.XTS
 			
 				if self.size < 1 or self.size > 0xFFFFFF:
 					raise IOError('AESXTS Block too large or small')
@@ -188,12 +187,12 @@ class BaseFile:
 				self.rewind()
 				self.enableBufferedIO(self.size, 0x10)
 
-		elif self.cryptoType == Type.Crypto.BKTR:
-			self.cryptoType = Type.Crypto.BKTR
-		elif self.cryptoType == Type.Crypto.NCA0:
-			self.cryptoType = Type.Crypto.NCA0
-		elif self.cryptoType == Type.Crypto.NONE:
-			self.cryptoType = Type.Crypto.NONE
+		elif self.cryptoType == Fs.Type.Crypto.BKTR:
+			self.cryptoType = Fs.Type.Crypto.BKTR
+		elif self.cryptoType == Fs.Type.Crypto.NCA0:
+			self.cryptoType = Fs.Type.Crypto.NCA0
+		elif self.cryptoType == Fs.Type.Crypto.NONE:
+			self.cryptoType = Fs.Type.Crypto.NONE
 
 
 	def open(self, path, mode = 'rb', cryptoType = -1, cryptoKey = -1, cryptoCounter = -1):
@@ -253,7 +252,6 @@ class BaseFile:
 		if self._path:
 			Print.info('%sFile Path: %s' % (tabs, self._path))
 		Print.info('%sFile Size: %s' % (tabs, self.size))
-
 
 class BufferedFile(BaseFile):
 	def __init__(self, path = None, mode = None, cryptoType = -1, cryptoKey = -1, cryptoCounter = -1):
@@ -324,7 +322,7 @@ class BufferedFile(BaseFile):
 
 	def getPageFlushBuffer(self, buffer):
 		if self.crypto:
-			if self.cryptoType == Type.Crypto.CTR:
+			if self.cryptoType == Fs.Type.Crypto.CTR:
 				#Print.info('reading ctr from ' + hex(self._bufferOffset))
 				self.crypto.set_ctr(self.setCounter(self.offset + self._bufferOffset))
 			else:
@@ -384,7 +382,7 @@ class File(BufferedFile):
 
 	def pageRefreshed(self):
 		if self.crypto:
-			if self.cryptoType == Type.Crypto.CTR:
+			if self.cryptoType == Fs.Type.Crypto.CTR:
 				#Print.info('reading ctr from ' + hex(self._bufferOffset))
 				self.crypto.set_ctr(self.setCounter(self.offset + self._bufferOffset))
 			else:
@@ -392,6 +390,46 @@ class File(BufferedFile):
 				#Print.info('reading from ' + hex(self._bufferOffset))
 			self._buffer = self.crypto.decrypt(self._buffer)
 		return self._buffer
+
+class MemoryFile(File):
+	def __init__(self, buffer, cryptoType = -1, cryptoKey = -1, cryptoCounter = -1, offset = None):
+		super(MemoryFile, self).__init__()
+		self._bufferOffset = offset or self._bufferOffset
+		self.buffer = buffer
+		self.size = len(buffer)
+		self.setupCrypto(cryptoType = cryptoType, cryptoKey = cryptoKey, cryptoCounter = cryptoCounter)
+
+		if self.crypto:
+			if self.cryptoType == Fs.Type.Crypto.CTR:
+				self.crypto.set_ctr(self.setCounter(offset))
+
+			self.buffer = self.crypto.decrypt(self.buffer)
+
+	def read(self, size = None, direct = False):
+		if size == None:
+			size = self.size - self._relativePos
+
+		return self.buffer[self._relativePos:self._relativePos+size]
+
+	def write(self, value, size = None):
+		return
+
+	def seek(self, offset, from_what = 0):
+		if from_what == 0:			
+			self._relativePos = offset
+			return
+		elif from_what == 1:
+			self._relativePos = self.offset + offset
+			return
+		elif from_what == 2:
+			if offset > 0:
+				raise Exception('Invalid seek offset')
+
+			self._relativePos = (self.offset + offset + self.size)
+			return
+
+	def open(self, path, mode = 'rb', cryptoType = -1, cryptoKey = -1, cryptoCounter = -1):
+		return
 		
 class CryptoFile(BufferedFile):
 	def __init__(self, path = None, mode = None, cryptoType = -1, cryptoKey = -1, cryptoCounter = -1):
