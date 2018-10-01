@@ -33,9 +33,26 @@ Title keys are saved to sdmc:/switch/dz/titlekeys.txt when dumped.
 
 You can place a single http url into /switch/dz/titlekeys.url.txt , to automatically submit your keys to that url to back them up.
 
+# Changelog
+
+- Added CURL error logging to console window for troublshooting network issues.
+- Added scroll bars to the menu, for those souls who add a million locations.
+- Added colored background to finished queue entries.
+- Fixed issue installing updates above 0x1000 / 65536
+- Added scrollbars to console
+- Removed Pepe icon.
+- Fixed minor scrollbar graphical glitches.
+- Fixed naming issues with apostrophes and ampersands.
+- Added icons / tiled layout option and a switchable view for games.
+- Added collapsable menu when browsing the panels.
+- Fixed a few memory leaks
+- Removed system version check for installs
+- Fixed data corruption error when checking through the OS.
+
+
 # Credits
 
-Tinfoil source code was reverse-engineered with plenty of help from Adubbz answering questions:
+Based on Tinfoil by Adubbz:
 https://github.com/Adubbz/Tinfoil
 
 HACTOOL source code was reverse-engineered, with small bits of code lifted here and there:
