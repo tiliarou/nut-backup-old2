@@ -48,6 +48,13 @@ You can place a single http url into /switch/dz/titlekeys.url.txt , to automatic
 - Fixed a few memory leaks
 - Removed system version check for installs
 - Fixed data corruption error when checking through the OS.
+- Optimized UI icon performance some.
+- Fixed out of memory issue while installing certain titles.
+- Optimized opening of certain file types.
+- Improved download speed a little.
+- Added icons for DLC and updates.
+- Fixed issue downloading small DLC.
+- Added window for deleting application records.
 
 
 # Credits
