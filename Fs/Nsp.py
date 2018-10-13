@@ -29,6 +29,8 @@ class Nsp(Pfs0):
 		self.hasValidTicket = None
 		self.timestamp = None
 		self.version = None
+		self.fileSize = None
+		self.fileModified = None
 
 		super(Nsp, self).__init__(None, path, mode)
 		
@@ -40,6 +42,16 @@ class Nsp(Pfs0):
 		if self.titleId and self.isUnlockable():
 			Print.info('unlockable title found ' + self.path)
 		#	self.unlock()
+
+	def getFileSize(self):
+		if self.fileSize == None:
+			self.fileSize = os.path.getsize(self.path)
+		return self.fileSize
+
+	def getFileModified(self):
+		if self.fileModified == None:
+			self.fileModified = os.path.getmtime(self.path)
+		return self.fileModified
 
 	def loadCsv(self, line, map = ['id', 'path', 'version', 'timestamp', 'hasValidTicket']):
 		split = line.split('|')
@@ -268,9 +280,17 @@ class Nsp(Pfs0):
 			t.loadCsv(self.titleId + '0000000000000000|0000000000000000|' + bt.name)
 		else:
 			t = Titles.get(self.titleId)
+
+			if not t:
+				Print.error('could not find title id ' + str(self.titleId))
+				return None
 		
-			if not t.baseId in Titles.keys():
-				Print.info('could not find baseId for ' + self.path)
+			try:
+				if not t.baseId in Titles.keys():
+					Print.info('could not find baseId for ' + self.path)
+					return None
+			except BaseException as e:
+				print('could not find title id ' + str(self.titleId))
 				return None
 			bt = Titles.get(t.baseId)
 		
