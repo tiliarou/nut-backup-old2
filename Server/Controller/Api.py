@@ -23,19 +23,29 @@ def getUser(request, response):
 
 def getSearch(request, response):
 	o = []
-	map = ['id', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'baseId']
+
+	region = request.query.get('region')
+	publisher = request.query.get('publisher')
+
+	dlc = request.query.get('dlc')
+	if dlc:
+		dlc = int(dlc[0])
+
+	update = request.query.get('update')
+	if update:
+		update = int(update[0])
+
+	demo = request.query.get('demo')
+	if demo:
+		demo = int(demo[0])
+
 	for k, t in Titles.items():
-		o.append({'id': t.get(id), 'name': t.get('name')})
+		f = t.getLatestFile()
+		if f and f.hasValidTicket and (region == None or t.region in region) and (dlc == None or t.isDLC == dlc) and (update == None or t.isUpdate == update) and (demo == None or t.isDemo == demo) and (publisher == None or t.publisher in publisher):
+			o.append({'id': t.id, 'name': t.name, 'version': int(f.version) if f.version else None , 'size': f.getFileSize(), 'mtime': f.getFileModified() })
 	response.write(json.dumps(o))
 
 def getTitles(request, response):
-	o = []
-	map = ['id', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'baseId']
-	for k, t in Titles.items():
-		o.append(t.__dict__)
-	response.write(json.dumps(o))
-	
-def getTitles2(request, response):
 	o = []
 	map = ['id', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'baseId']
 	for k, t in Titles.items():
@@ -179,7 +189,8 @@ def getInstall(request, response):
 def getDownload(request, response):
 	nsp = Nsps.getByTitleId(request.bits[2])
 	#Print.info('Downloading ' + nsp.path)
-	response.attachFile(os.path.basename(nsp.path))
+	#response.attachFile(os.path.basename(nsp.path))
+	response.attachFile(nsp.titleId + '.nsp')
 	
 	chunkSize = 0x10000
 
