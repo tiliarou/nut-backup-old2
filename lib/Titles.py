@@ -12,7 +12,7 @@ import threading
 import cdn
 
 global titles
-titles = {}
+titles = None
 
 global regionTitles
 regionTitles = {}
@@ -20,47 +20,66 @@ regionTitles = {}
 if os.path.isfile('titles.json'):
 	os.rename('titles.json', 'titledb/titles.json')
 
-def data(region = None):
-	if region:
-		return regionTitles[region]
+def data(region = None, language = None):
+	global regionTitles
+	global titles
 
+	if region:
+		if not region in regionTitles:
+			regionTitles[region] = {}
+
+		if not language in regionTitles[region]:
+			filePath = 'titledb/%s.%s.json' % (region, language)
+			if os.path.isfile(filePath):
+				regionTitles[region][language] = loadTitlesJson(filePath)
+			else:
+				regionTitles[region][language] = {}
+
+		return regionTitles[region][language]
+
+	if titles == None:
+		load()
 	return titles
 
-def items(region = None):
+def items(region = None, language = None):
 	if region:
-		return regionTitles[region].items()
+		return regionTitles[region][language].items()
 
 	return titles.items()
 
-def get(key, region = None):
-	if region:
-		return regionTitles[region][key]
+def get(key, region = None, language = None):
+	key = key.upper()
+	if not key in data(region, language):
+		t = Title.Title()
+		t.setId(key)
+		data(region, language)[key] = t
+	return data(region, language)[key]
 
-	return titles[key]
-
-def getNsuid(id, region = None):
+def getNsuid(id, region, language):
 	id = int(id)
 
-	map = data(region)
+	map = data(region, language)
 
 	for t in map:
 		if map[t].nsuId == id:
 			return map[t]
-	return None
+
+	title = Title.Title()
+	title.nsuId = id
+
+	map[id] = title
+	return title
 	
 def contains(key, region = None):
 	return key in titles
 	
-def set(key, value, region = None):
-	if region:
-		regionTitles[region][key] = value
-	else:
-		titles[key] = value
+def set(key, value):
+	titles[key] = value
 	
 	
-def keys(region = None):
+def keys(region = None, language = None):
 	if region:
-		return regionTitles[region].keys()
+		return regionTitles[region][language].keys()
 
 	return titles.keys()
 	
@@ -96,7 +115,7 @@ def loadTitleBuffer(buffer, silent = False):
 		t = Title.Title()
 		t.loadCsv(line, map)
 
-		if not t.id in keys():
+		if not t.id in keys(None, None):
 			titles[t.id] = Title.Title()
 			
 		titleKey = titles[t.id].key
@@ -116,7 +135,7 @@ def loadTitlesJson(filePath = 'titledb/titles.json'):
 			for i, k in json.loads(f.read()).items():
 				newTitles[i] = Title.Title()
 				newTitles[i].__dict__ = k
-				newTitles[i].setId(newTitles[i].id)
+				newTitles[i].setId(i)
 
 		Print.info('loaded ' + filePath + ' in ' + str(time.clock() - timestamp) + ' seconds')
 
@@ -124,26 +143,37 @@ def loadTitlesJson(filePath = 'titledb/titles.json'):
 	return newTitles
 
 def load():
-	global regionTitles
-
-	for region in cdn.regions():
-		filePath = 'titledb/%s.json' % region
-		if os.path.isfile(filePath):
-			regionTitles[region] = loadTitlesJson(filePath)
-		else:
-			regionTitles[region] = {}
-
 	confLock.acquire()
 	global titles
+	titles = {}
+
 	if os.path.isfile("titledb/titles.json"):
 		timestamp = time.clock()
 		with open('titledb/titles.json', encoding="utf-8-sig") as f:
 			for i, k in json.loads(f.read()).items():
 				titles[i] = Title.Title()
 				titles[i].__dict__ = k
-				titles[i].setId(titles[i].id)
+				titles[i].setId(i)
 
 		Print.info('loaded titledb/titles.json in ' + str(time.clock() - timestamp) + ' seconds')
+
+		'''
+	if os.path.isfile("titles.txt"):
+		loadTitleFile('titles.txt', True)
+
+	try:
+		files = [f for f in os.listdir(Config.paths.titleDatabase) if f.endswith('.txt')]
+		files.sort()
+	
+		for file in files:
+			loadTitleFile(Config.paths.titleDatabase + '/' + file, False)
+	except BaseException as e:
+		Print.error('title load error: ' + str(e))
+		'''
+	confLock.release()
+
+def loadTxtDatabases():
+	confLock.acquire()
 
 	if os.path.isfile("titles.txt"):
 		loadTitleFile('titles.txt', True)
@@ -174,11 +204,10 @@ def saveTitlesJson(newTitles, fileName = 'titledb/titles.json'):
 	try:
 		j = {}
 		for i,k in newTitles.items():
-			if not k.id or k.id == '0000000000000000':
+			if not k.nsuId:
 				continue
-			if k.description:
-				k.description = k.description.strip()
-			j[k.id] = k.__dict__
+
+			j[k.nsuId] = k.exportDict()
 		with open(fileName, 'w') as outfile:
 			json.dump(j, outfile, indent=4)
 	except:
@@ -188,18 +217,14 @@ def saveTitlesJson(newTitles, fileName = 'titledb/titles.json'):
 	confLock.release()
 
 def save(fileName = 'titledb/titles.json'):
-	for region in cdn.regions():
-		saveTitlesJson(data(region), 'titledb/%s.json' % region)
-
 	confLock.acquire()
 	try:
 		j = {}
 		for i,k in titles.items():
 			if not k.id or k.id == '0000000000000000':
 				continue
-			if k.description:
-				k.description = k.description.strip()
-			j[k.id] = k.__dict__
+
+			j[k.id] = k.exportDict()
 		with open(fileName, 'w') as outfile:
 			json.dump(j, outfile, indent=4)
 	except:
@@ -207,6 +232,16 @@ def save(fileName = 'titledb/titles.json'):
 		raise
 
 	confLock.release()
+
+def saveRegion(region, language):
+	saveTitlesJson(data(region, language), 'titledb/%s.%s.json' % (region, language))
+
+def saveAll(fileName = 'titledb/titles.json'):
+	for region in cdn.regions():
+		for language in cdn.Shogun.countryLanguages(region):
+			saveTitlesJson(data(region, language), 'titledb/%s.%s.json' % (region, language))
+
+	save(fileName)
 
 class Queue:
 	def __init__(self):

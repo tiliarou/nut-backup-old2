@@ -94,8 +94,7 @@ class Title:
 		self.key = None
 		self.isDemo = None
 		self.region = None
-		self.isModified = False
-		self.retailOnly = None
+		self.regions = None
 
 		self.baseId = None
 		self.releaseDate = None
@@ -121,6 +120,13 @@ class Title:
 		if not other.name:
 			return False
 		return str(self.name) < str(other.name)
+
+	def exportDict(self):
+		r = {}
+		for i in self.__dict__.keys():
+			if i not in ('isDLC', 'isUpdate', 'idExt', 'updateId', 'baseId'):
+				r[i] = self.__dict__[i]
+		return r
 		
 	def loadCsv(self, line, map = ['id', 'key', 'name']):
 		split = line.split('|')
@@ -138,15 +144,27 @@ class Title:
 		#self.setName(split[2].strip())
 		#self.setKey(split[1].strip())
 
-	def dict(self, map = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'retailOnly']):
+	def dict(self, map = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region']):
 		r = {}
 		for i in map:	
 			methodName = 'get' + i[0].capitalize() + i[1:]
 			method = getattr(self, methodName, lambda: methodName)
 			r[i] = method()
 		return r
+
+	def importFrom(self, regionTitle, region, language):
+		if not regionTitle.name or not regionTitle.id:
+			return
+		for k,v in regionTitle.__dict__.items():
+			if k in ('id', 'version', 'regions', 'languages', 'nsuId', 'key'):
+				continue
+			setattr(self, k, v)
+			self.setId(self.id)
+			self.setVersion(regionTitle.version)
+			self.region = region
+			self.language = language
 		
-	def serialize(self, map = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'retailOnly']):
+	def serialize(self, map = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region']):
 		r = []
 		for i in map:
 				
@@ -216,18 +234,6 @@ class Title:
 				self.isUpdate = False
 		except:
 			pass
-
-	def getRetailOnly(self):
-		try:
-			return self.retailOnly*1
-		except:
-			return 0
-
-	def setRetailOnly(self, v):
-		try:
-			self.retailOnly = bool(int(v, 10))
-		except:
-			pass
 		
 	def getIsDemo(self):
 		try:
@@ -245,6 +251,11 @@ class Title:
 		except:
 			pass
 
+	def setNsuId(self, nsuId):
+		self.nsuId = nsuId
+		if nsuId:
+			self.isDemo = str(nsuId)[0:4] == '7003'
+
 	def setRightsId(self, rightsId):
 		if not id:
 			self.setId(rightsId)
@@ -256,7 +267,9 @@ class Title:
 		return self.rightsId or '00000000000000000000000000000000'
 			
 	def setId(self, id):
-		if not id or self.id:
+		self.isUpdate = False
+		self.baseId = None
+		if not id:
 			return
 			
 		id = id.upper();
@@ -278,8 +291,6 @@ class Title:
 		
 		if self.id:
 			self.baseId = '{:02X}'.format(titleIdNum & 0xFFFFFFFFFFFFE000).zfill(16)
-		else:
-			self.baseId = None
 		
 		self.isDLC = (titleIdNum & 0xFFFFFFFFFFFFE000) != (titleIdNum & 0xFFFFFFFFFFFFF000)
 		#self.isBase = self.id == titleIdNum & 0xFFFFFFFFFFFFE000
@@ -287,7 +298,7 @@ class Title:
 		
 		if self.isDLC:
 			# dlc
-			pass
+			self.isUpdate = False
 		elif self.idExt == 0:
 			# base
 			self.updateId = '%s800' % self.id[:-3]
@@ -310,14 +321,14 @@ class Title:
 		return self.baseId or '0000000000000000'
 
 	def setRegion(self, region):
-		if re.match('[A-Z]{2}', region):
+		if not self.region and re.match('[A-Z]{2}', region):
 			self.region = region
 		
 	def getRegion(self):
 		return self.region or ''
 			
 	def setName(self, name):
-		if not name:
+		if not name or self.name:
 			return
 		self.name = name
 		
@@ -329,9 +340,15 @@ class Title:
 	
 	def getName(self):
 		baseId = getBaseId(self.id)
-		if self.isUpdate and Titles.contains(baseId):
-			return Titles.get(baseId).name
-		return self.name or ''
+		if hasattr(self, 'isUpdate') and self.isUpdate and Titles.contains(baseId):
+			return (Titles.get(baseId).name or '').replace('\n', ' ')
+		return (self.name or '').replace('\n', ' ')
+
+	def getBaseName(self):
+		baseId = getBaseId(self.id)
+		if Titles.contains(baseId):
+			return (Titles.get(baseId).name or '').replace('\n', ' ')
+		return ''
 			
 	def setKey(self, key):
 		if not key:
@@ -491,7 +508,7 @@ class Title:
 
 		if "id" in _json:
 			try:
-				self.nsuId = int("%s" % _json["id"])
+				self.setNsuId("%s" % _json["id"])
 			except:
 				pass
 
@@ -503,15 +520,6 @@ class Title:
 			for i, k in enumerate(_json["screenshots"]):
 				self.screenshots.append(k["images"][0]["url"])
 
-		'''
-		if "demos" in _json:
-			for demo in _json["demos"]:
-				if "id" in demo:
-					if id[0:12] != _json['applications'][0]['id'][0:12]:
-						self.nsuId = int(demo["id"])
-						if "name" in demo:
-							self.name = demo["name"].strip()
-		'''
 
 		if "languages" in _json:
 			self.languages = []
@@ -550,9 +558,17 @@ class Title:
 			if 'title' in _json["publisher"]:
 				self.publisher = _json["publisher"]["title"]
 
-		if "applications" in _json:
-			if "image_url" in _json["applications"][0]:
-				self.iconUrl = _json["applications"][0]['image_url']
+		if "applications" in _json and isinstance(_json["applications"], list):
+			for a in _json["applications"]:
+				if "id" in a:
+					self.setId(a['id'])
+
+				if "image_url" in a:
+					self.iconUrl = a['image_url']
+				break
+
+		if "applications" in _json and "image_url" in _json["applications"]:
+			self.iconUrl = _json["applications"]['image_url']
 
 		if "catch_copy" in _json:
 			intro = re.sub('(?<!\n)\n(?!\n)', ' ',_json["catch_copy"])
@@ -628,7 +644,7 @@ class Title:
 								self.name = infoJson["name"].strip()
 
 							if "nsuid" in infoJson:
-								self.nsuId = int(infoJson["nsuid"])
+								self.setNsuId(int(infoJson["nsuid"]))
 
 
 							catagories = []

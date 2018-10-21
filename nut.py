@@ -35,6 +35,10 @@ import pprint
 import random
 import cdn.Shogun
 import cdn.Superfly
+try:
+	import Usb
+except:
+	Print.error('pip3 install pyusb, required for USB coms')
 
 
 				
@@ -59,7 +63,7 @@ def logMissingTitles(file):
 	f = open(file,"w", encoding="utf-8-sig")
 	
 	for k,t in Titles.items():
-		if t.isUpdateAvailable() and not t.retailOnly and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
+		if t.isUpdateAvailable() and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
 			if not t.id or t.id == '0' * 16 or (t.isUpdate and t.lastestVersion() in [None, '0']):
 				continue
 			f.write((t.id or ('0'*16)) + '|' + (t.key or ('0'*32)) + '|' + (t.name or '') + "\r\n")
@@ -186,13 +190,16 @@ def startDownloadThreads():
 		threads.append(t)
 
 def downloadAll(wait = True):
+	initTitles()
+	initFiles()
+
 	global activeDownloads
 	global status
 
 	try:
 
 		for k,t in Titles.items():
-			if t.isUpdateAvailable() and not t.retailOnly and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
+			if t.isUpdateAvailable() and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
 				if not t.id or t.id == '0' * 16 or (t.isUpdate and t.lastestVersion() in [None, '0']):
 					#Print.warning('no valid id? ' + str(t.path))
 					continue
@@ -300,9 +307,9 @@ def startBaseScan():
 	baseStatus.close()
 
 			
-def export(file):
+def export(file, cols = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'baseName', 'version', 'region']):
 	initTitles()
-	Titles.export(file, ['id', 'rightsId', 'isUpdate', 'isDLC', 'isDemo', 'name', 'version', 'region', 'retailOnly'])
+	Titles.export(file, cols)
 
 global hasScanned
 hasScanned = False
@@ -315,6 +322,10 @@ def scan():
 	hasScanned = True
 	initTitles()
 	initFiles()
+
+	
+	refreshRegions()
+	importRegion(Config.region, Config.language)
 
 	Nsps.scan(Config.paths.scan)
 	Titles.save()
@@ -460,6 +471,62 @@ def submitKeys():
 			except BaseException as e:
 				Print.info(str(e))
 				raise
+
+def refreshRegions():
+	for region in Config.regionLanguages():
+		for language in Config.regionLanguages()[region]:
+			for i in Titles.data(region, language):
+				regionTitle = Titles.data(region, language)[i]
+
+				if regionTitle.id:
+					title = Titles.get(regionTitle.id, None, None)
+
+					if not hasattr(title, 'regions') or not title.regions:
+						title.regions = []
+
+					if not hasattr(title, 'languages') or not title.languages:
+						title.languages = []
+
+					if not region in title.regions:
+						title.regions.append(region)
+
+					if not language in title.languages:
+						title.languages.append(language)
+	Titles.save()
+
+def importRegion(region = 'US', language = 'en'):
+	if not region in Config.regionLanguages() or language not in Config.regionLanguages()[region]:
+		Print.error('Could not locate %s/%s !' % (region, language))
+		return False
+
+	for region2 in Config.regionLanguages():
+		for language2 in Config.regionLanguages()[region2]:
+			for nsuId, regionTitle in Titles.data(region2, language2).items():
+				if not regionTitle.id:
+					continue
+				title = Titles.get(regionTitle.id, None, None)
+				title.importFrom(regionTitle, region2, language2)
+
+	for region2 in Config.regionLanguages():
+		for language2 in Config.regionLanguages()[region2]:
+			if language2 != language:
+				continue
+			for nsuId, regionTitle in Titles.data(region2, language2).items():
+				if not regionTitle.id:
+					continue
+				title = Titles.get(regionTitle.id, None, None)
+				title.importFrom(regionTitle, region2, language2)
+
+
+	for nsuId, regionTitle in Titles.data(region, language).items():
+		if not regionTitle.id:
+			continue
+
+		title = Titles.get(regionTitle.id, None, None)
+		title.importFrom(regionTitle, region, language)
+
+	Titles.save()
+
 			
 if __name__ == '__main__':
 	try:
@@ -522,10 +589,12 @@ if __name__ == '__main__':
 		parser.add_argument('-x', '--extract', nargs='+', help='extract / unpack a NSP')
 		parser.add_argument('-c', '--create', help='create / pack a NSP')
 		parser.add_argument('--export', help='export title database in csv format')
+		parser.add_argument('--export-versions', help='export title version database in csv format')
 		parser.add_argument('-M', '--missing', help='export title database of titles you have not downloaded in csv format')
 		parser.add_argument('--nca-deltas', help='export list of NSPs containing delta updates')
 		parser.add_argument('--silent', action="store_true", help='Suppress stdout/stderr output')
 		parser.add_argument('--json', action="store_true", help='JSON output')
+		parser.add_argument('--usb', action="store_true", help='Run usb daemon')
 		parser.add_argument('-S', '--server', action="store_true", help='Run server daemon')
 		parser.add_argument('-m', '--hostname', help='Set server hostname')
 		parser.add_argument('-p', '--port', type=int, help='Set server port')
@@ -537,9 +606,15 @@ if __name__ == '__main__':
 		parser.add_argument('--scrape-title', help='Scrape title from Nintendo servers')
 
 		parser.add_argument('--scrape-shogun', action="store_true", help='Scrape ALL titles from shogun')
+		parser.add_argument('--scrape-languages', action="store_true", help='Scrape languages from shogun')
+
+		parser.add_argument('--refresh-regions', action="store_true", help='Refreshes the region and language mappings in Nut\'s DB')
+		parser.add_argument('--import-region', help='Localizes Nut\'s DB to the specified region')
+		parser.add_argument('--language', help='Specify language to be used with region')
 
 		parser.add_argument('--scan-base', nargs='*', help='Scan for new base Title ID\'s')
 		parser.add_argument('--scan-dlc', nargs='*', help='Scan for new DLC Title ID\'s')
+
 		
 		args = parser.parse_args()
 
@@ -597,12 +672,35 @@ if __name__ == '__main__':
 			initTitles()
 			for url in Config.titleUrls:
 				updateDb(url)
+			Titles.loadTxtDatabases()
 			Titles.save()
 
 		if args.submit_keys:
 			initTitles()
 			initFiles()
 			submitKeys()
+
+		if args.scrape_languages:
+			cdn.Shogun.saveLanguages()
+			exit(0)
+
+		if args.refresh_regions:
+			refreshRegions()
+			exit(0)
+
+		if args.import_region:
+			region = args.import_region.upper()
+			if not args.language:
+				args.language = Config.language
+
+			args.language = args.language.lower()
+
+			importRegion(region, args.language)
+			exit(0)
+
+		if args.usb:
+			scan()
+			Usb.daemon()
 		
 		if args.download:
 			initTitles()
@@ -648,9 +746,13 @@ if __name__ == '__main__':
 			scan()
 		
 		if args.refresh:
+			initTitles()
+			initFiles()
 			refresh()
 	
 		if args.organize:
+			initTitles()
+			initFiles()
 			organize()
 
 		if args.set_masterkey1:
@@ -689,6 +791,8 @@ if __name__ == '__main__':
 			pass
 
 		if args.remove_title_rights:
+			initTitles()
+			initFiles()
 			for fileName in args.remove_title_rights:
 				try:
 					f = Fs.Nsp(fileName, 'r+b')
@@ -748,12 +852,11 @@ if __name__ == '__main__':
 					print(str(r['default_language_code']))
 				'''
 				
-			#cdn.Shogun.country('US')
 				cdn.Shogun.scrapeTitles(region)
 			#cdn.Shogun.ids('01005EE0036ED001,01005EE0036ED002', 'aoc')
 			#for i in cdn.Superfly.getAddOns('01005ee0036ec000'.upper()):
 			#	print(str(i))
-			#cdn.Shogun.scrapeTitles('JP')
+			#cdn.Shogun.scrapeLangTitles('US', 'en')
 
 		if args.scrape_title:
 			initTitles()
@@ -815,7 +918,14 @@ if __name__ == '__main__':
 			downloadAll()
 		
 		if args.export:
+			initTitles()
+			initFiles()
 			export(args.export)
+
+		if args.export_versions:
+			initTitles()
+			initFiles()
+			export(args.export_versions, ['id', 'version'])
 		
 		if args.missing:
 			logMissingTitles(args.missing)

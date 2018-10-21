@@ -27,6 +27,7 @@ import Config
 import os
 import hashlib
 import Title
+import cdn
 
 
 def makeRequest(method, url, hdArgs={}):
@@ -52,14 +53,14 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 	os.makedirs('cache/superfly/', exist_ok=True)
 	cacheFileName = 'cache/superfly/' + hashlib.md5(url.encode()).hexdigest()
-	print(url)
+	#print(url)
 
 	if key:
 		key = 'cache/superfly/' + Config.cdn.environment + '/' + key
 
 	j = None
 
-	if os.path.isfile(cacheFileName):
+	if cdn.isValidCache(cacheFileName):
 		if not key:
 			with open(cacheFileName, encoding="utf-8-sig") as f:
 				j = json.loads(f.read())
@@ -69,8 +70,7 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 	if key:
 		cacheFileName = key
-		if os.path.isfile(cacheFileName):
-			print('opening key ' + key)
+		if cdn.isValidCache(cacheFileName):
 			with open(key, encoding="utf-8-sig") as f:
 				j = json.loads(f.read())
 
@@ -93,7 +93,7 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 	return j
 
-def getAddOns(titleId):
+def getAddOns(titleId, shop_id=3):
 	url = 'https://superfly.hac.%s.d4c.nintendo.net/v1/a/%s/dv' % (Config.cdn.environment, titleId)
 	j = makeJsonRequest('GET', url, {}, '%d/a/%s/dv.json' % (shop_id, titleId))
 	lst = []
@@ -104,14 +104,12 @@ def getAddOns(titleId):
 	for i in j:
 		id = i['title_id'].upper()
 
-		if Titles.contains(id):
-			Titles.get(id).setVersion(int(i['version']))
-		else:
+		if not Titles.contains(id):
 			Print.info('New DLC found: ' + id)
-			title = Title.Title()
-			title.setId(id)
-			title.setVersion(int(i['version']))
-			Titles.set(id, title)
+
+		title = Titles.get(id, None, None)
+		title.setVersion(int(i['version']))
+
 
 		lst.append(id)
 
