@@ -69,6 +69,17 @@ def getNsuid(id, region, language):
 
 	map[id] = title
 	return title
+
+def hasNsuid(id, region, language):
+	id = int(id)
+
+	map = data(region, language)
+
+	for t in map:
+		if map[t].nsuId == id:
+			return True
+
+	return False
 	
 def contains(key, region = None):
 	return key in titles
@@ -171,6 +182,7 @@ def load():
 		Print.error('title load error: ' + str(e))
 		'''
 	confLock.release()
+	loadTxtDatabases()
 
 def loadTxtDatabases():
 	confLock.acquire()
@@ -207,7 +219,7 @@ def saveTitlesJson(newTitles, fileName = 'titledb/titles.json'):
 			if not k.nsuId:
 				continue
 
-			j[k.nsuId] = k.exportDict()
+			j[k.nsuId] = k.exportDict(True)
 		with open(fileName, 'w') as outfile:
 			json.dump(j, outfile, indent=4)
 	except:

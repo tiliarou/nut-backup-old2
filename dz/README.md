@@ -67,6 +67,13 @@ Title keys are saved to `sdmc:/switch/dz/titlekeys.txt` when dumped. Additionall
 
 Use at your own risk, and [always have a NAND backup](https://gbatemp.net/threads/rcm-payload-hekate-ctcaer-mod.502604/).
 
+## Additional Info
+
+## FAQ
+
+#### What does each icon on the left mean?
+On the left, you will see icons that indicate what is not yet installed on your Switch, but is on your PC (the game controller), and everything that is on your PC/server (PC icon). Anything that is listed under Games, DLC, and Updates, with the game controller icon next to it, is what is currently on your PC but not on your Switch.
+You can go to the Home tab to see everything that you have installed on your Switch.
 
 # Changelog
 
@@ -115,6 +122,22 @@ Use at your own risk, and [always have a NAND backup](https://gbatemp.net/thread
 - Added USB experimental install. Server command (make sure nut can see your NSP's): `nut.py --usb`
 - Added title type column, and region column now populates with NUT server.
 - Added DLC info back into the name so you can differentiate them in the list.
+- Added smoother tile scrolling.
+- Added automatic merged lists of games, dlc, and updates, and hides titles you already have installed.  These sections merge all of the titles from all of your locations into one unique list.
+- Merged updates section only shows updates higher than what you have installed.
+- Added list of DLC and updates to the install dialog.
+- Included Latest Update on the install dialog now works.
+- Added support for loading titles.US.en.json to load names / metadata for all titles.  Place this file at /switch/dz/titles.US.en.json
+- "Modified Date" is now "Release Date"
+- Changed name to Tinfoil.
+- Disbaled b-button exit.
+- Fixed "Unknown" name display.
+- Improved icon loading performance.
+- Added small icon mode.
+- Added smooth scrolling to regular lists.
+- Fixed new graphical glitches.
+- Added section name to title.
+
 
 ## Credits
 
