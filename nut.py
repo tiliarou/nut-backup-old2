@@ -40,6 +40,11 @@ try:
 except:
 	Print.error('pip3 install pyusb, required for USB coms')
 
+try:
+	import blockchain
+except:
+	raise
+
 
 				
 def loadTitleWhitelist():
@@ -92,8 +97,13 @@ def logNcaDeltas(file):
 		
 	x.close()
 	
-def updateDb(url):
+def updateDb(url, c=0):
 	initTitles()
+
+	c += 1
+
+	if c > 3:
+		return False
 
 	Print.info("Downloading new title database " + url)
 	try:
@@ -110,6 +120,12 @@ def updateDb(url):
 		r.encoding = 'utf-8-sig'
 
 		if r.status_code == 200:
+			try:
+				m = re.search(r'<a href="([^"]*)">Proceed</a>', r.text)
+				if m:
+					return updateDb(m.group(1), c)
+			except:
+				pass
 			Titles.loadTitleBuffer(r.text, False)
 		else:
 			Print.info('Error updating database: ', repr(r))
@@ -341,6 +357,20 @@ def organize():
 		#print('moving ' + f.path)
 		#Print.info(str(f.hasValidTicket) +' = ' + f.path)
 		f.move()
+
+	for id, t in Titles.data().items():
+		files = t.getFiles()
+		if len(files) > 1:
+			#Print.info("%d - %s - %s" % (len(files), t.id, t.name))
+			latest = t.getLatestFile()
+
+			if not latest:
+				continue
+
+			for f in files:
+				if f.path != latest.path:
+					f.moveDupe()
+
 	Print.info('removing empty directories')
 	Nsps.removeEmptyDir('.', False)
 	Nsps.save()
@@ -449,6 +479,9 @@ def unlockAll():
 	for k,f in Nsps.files.items():
 		if f.isUnlockable():
 			try:
+				if f.title().isBase() and not blockchain.verifyKey(f.titleId, f.title().key):
+					raise IOError('Could not verify title key! %s / %s - %s' % (f.titleId, f.title().key, f.title().name))
+					continue
 				Print.info('unlocking ' + f.path)
 				f.open(f.path, 'r+b')
 				f.unlock()
@@ -457,14 +490,15 @@ def unlockAll():
 				Print.info('error unlocking: ' + str(e))
 
 def submitKeys():
-	try:
-		import blockchain
-	except:
-		raise
 	for id, t in Titles.items():
-		if t.key: #and not t.isUpdate:
+		if t.key and t.isBase() and len(t.getFiles()) > 0:
 			try:
-				blockchain.blockchain.suggest(t.id, t.key)
+				#blockchain.blockchain.suggest(t.id, t.key)
+				if not blockchain.verifyKey(t.id, t.key):
+					Print.error('Key verification failed for %s / %s' % (str(t.id), str(t.key)))
+					for f in t.getFiles():
+						f.hasValidTicket = False
+						f.move()
 			except LookupError as e:
 				Print.info(str(e))
 			except OSError as e:

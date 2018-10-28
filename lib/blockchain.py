@@ -121,6 +121,7 @@ class Blockchain:
 		self.current_transactions = []
 		self.chain = []
 		self.nodes = set()
+		self.map = {}
 
 		self.load()
 
@@ -150,8 +151,8 @@ class Blockchain:
 		for c in self.chain:
 			for t in c.transactions:
 				if t.titleId == id:
-					return True
-		return False
+					return t.titleKey
+		return None
 
 	def register_node(self, address):
 		"""
@@ -340,13 +341,20 @@ def verifyKey(titleId = None, titleKey = None):
 		# Check that the required fields are in the POST'ed data
 		required = ['titleId', 'titleKey']
 		if not titleId or not titleKey:
-			return false
+			return False
 
 		titleId = titleId.upper()
+
+		if blockchain.hasTitle(titleId):
+			if blockchain.hasTitle(titleId) == titleKey:
+				return True
+			else:
+				return False
+
 		nsp = Nsps.getByTitleId(titleId)
 
 		if not nsp:
-			return false
+			return False
 
 		nsp.open()
 
@@ -367,12 +375,14 @@ def verifyKey(titleId = None, titleKey = None):
 						index = blockchain.new_transaction(entry)
 
 						blockchain.new_block()
+						nsp.close()
+						return True
+		nsp.close()
 
-						return true
-
-		return false
+		return False
 	except BaseException as e:
-		return str(e), 400
+		nsp.close()
+		return False
 
 @app.route('/transactions/suggest', methods=['GET'])
 def new_suggestion():
