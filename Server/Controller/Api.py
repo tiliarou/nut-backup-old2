@@ -388,11 +388,10 @@ def getSubmitKey(request, response):
 
 def postTinfoilSetInstalledApps(request, response):
 	try:
-		serial = "XAJ70002712345"
+		serial = request.bits[2]
 		path = 'switch/' + serial + ''
 		Print.info('path: ' + path)
-		if not os.makedirs(path, exist_ok=True):
-			Print.error('Failed to create ' + path)
+		os.makedirs(path, exist_ok=True)
 
 		with open(path + '/installed.json', 'wb') as f:
 			f.write(request.post)
@@ -400,3 +399,21 @@ def postTinfoilSetInstalledApps(request, response):
 		return success(request, response, "OK")
 	except:
 		raise
+
+
+def getSwitchList(request, response):
+	try:
+		dirs = [f for f in os.listdir('switch/') if os.path.isdir(os.path.join('switch/', f))]
+		response.write(json.dumps(dirs))
+	except BaseException as e:
+		error(request, response, str(e))
+
+def getSwitchInstalled(request, response):
+	try:
+		path = 'switch/' + request.bits[2] + '/installed.json'
+		with open(path, encoding="utf-8-sig") as f:
+			response.write(f.read())
+			return
+
+	except BaseException as e:
+		error(request, response, str(e))

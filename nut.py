@@ -35,10 +35,6 @@ import pprint
 import random
 import cdn.Shogun
 import cdn.Superfly
-try:
-	import Usb
-except:
-	Print.error('pip3 install pyusb, required for USB coms')
 
 try:
 	import blockchain
@@ -323,7 +319,7 @@ def startBaseScan():
 	baseStatus.close()
 
 			
-def export(file, cols = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'name', 'baseName', 'version', 'region']):
+def export(file, cols = ['id', 'rightsId', 'key', 'isUpdate', 'isDLC', 'isDemo', 'baseName', 'name', 'version', 'region']):
 	initTitles()
 	Titles.export(file, cols)
 
@@ -571,6 +567,16 @@ def scrapeShogun():
 		cdn.Shogun.scrapeTitles(region)
 	Titles.saveAll()
 
+def genTinfoilTitles():
+	initTitles()
+	initFiles()
+
+	for region, languages in Config.regionLanguages().items():			
+		for language in languages:
+			importRegion(region, language)
+			Titles.save('titledb/titles.%s.%s.json' % (region, language))
+			#Print.info('%s - %s' % (region, language))
+
 def download(id):
 	bits = id.split(',')
 
@@ -695,6 +701,8 @@ if __name__ == '__main__':
 		parser.add_argument('--scan-base', nargs='*', help='Scan for new base Title ID\'s')
 		parser.add_argument('--scan-dlc', nargs='*', help='Scan for new DLC Title ID\'s')
 
+		parser.add_argument('--gen-tinfoil-titles', action="store_true", help='Outputs language files for Tinfoil')
+
 		
 		args = parser.parse_args()
 
@@ -779,6 +787,10 @@ if __name__ == '__main__':
 			exit(0)
 
 		if args.usb:
+			try:
+				import Usb
+			except BaseException as e:
+				Print.error('pip3 install pyusb, required for USB coms: ' + str(e))
 			scan()
 			Usb.daemon()
 		
@@ -888,6 +900,9 @@ if __name__ == '__main__':
 
 		if args.scrape_shogun:
 			scrapeShogun()
+
+		if args.gen_tinfoil_titles:
+			genTinfoilTitles()
 
 		if args.scrape_title:
 			initTitles()
