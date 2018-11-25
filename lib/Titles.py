@@ -65,9 +65,9 @@ def getNsuid(id, region, language):
 			return map[t]
 
 	title = Title.Title()
-	title.nsuId = id
+	title.setNsuId(id)
 
-	map[id] = title
+	map[str(id)] = title
 	return title
 
 def hasNsuid(id, region, language):
@@ -182,7 +182,37 @@ def load():
 		Print.error('title load error: ' + str(e))
 		'''
 	confLock.release()
-	loadTxtDatabases()
+	#loadTxtDatabases()
+
+def parsePersonalKeys(path):
+	Print.info('loading personal keys ' + path)
+	parsed_keys = {}
+	with open(path, encoding='utf8', errors='ignore') as f:
+		lines = f.readlines()
+
+		for line in lines:
+			if 'Ticket' in line:
+				pass
+			elif 'Rights ID' in line:
+				rid = line.split(': ')[1].strip()
+			elif 'Title ID' in line:
+				tid = line.split(': ')[1].strip()
+			elif 'Titlekey' in line:
+				tkey = line.split(': ')[1].strip()
+
+				if not tid.endswith('800'):
+					parsed_keys[rid] = tkey
+
+	for rightsId, key in parsed_keys.items():
+		rightsId = rightsId.upper()
+		key = key.upper()
+		titleId = rightsId[0:16]
+		title = get(titleId)
+		if title.key != key:
+			title.setId(rightsId)
+			title.setKey(key)
+			Print.info('Added new title key for %s[%s]' % (title.name, titleId))
+		#print("{}|{}".format(k, v))
 
 def loadTxtDatabases():
 	confLock.acquire()
@@ -195,7 +225,11 @@ def loadTxtDatabases():
 		files.sort()
 	
 		for file in files:
-			loadTitleFile(Config.paths.titleDatabase + '/' + file, False)
+			if file.endswith('personal_keys.txt'):
+				parsePersonalKeys(Config.paths.titleDatabase + '/' + file)
+			else:
+				loadTitleFile(Config.paths.titleDatabase + '/' + file, False)
+
 	except BaseException as e:
 		Print.error('title load error: ' + str(e))
 	confLock.release()
@@ -215,7 +249,9 @@ def saveTitlesJson(newTitles, fileName = 'titledb/titles.json'):
 	confLock.acquire()
 	try:
 		j = {}
-		for i,k in newTitles.items():
+		#for i in newTitles.items():
+		for i in sorted(newTitles):
+			k = newTitles[i]
 			if not k.nsuId:
 				continue
 
@@ -232,7 +268,8 @@ def save(fileName = 'titledb/titles.json'):
 	confLock.acquire()
 	try:
 		j = {}
-		for i,k in titles.items():
+		for i in sorted(titles):
+			k = titles[i]
 			if not k.id or k.id == '0000000000000000':
 				continue
 

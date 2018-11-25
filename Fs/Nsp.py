@@ -334,7 +334,7 @@ class Nsp(Pfs0):
 		baseName = self.cleanFilename(bt.getName() or '')
 		result = format.replace('{baseName}', baseName)
 		
-		while(len(os.path.basename(result).encode('utf-8')) > 254 and len(baseName) > 3):
+		while(len(os.path.basename(result).encode('utf-8')) > 240 and len(baseName) > 3):
 			baseName = baseName[:-1]
 			result = format.replace('{baseName}', baseName)
 			
@@ -480,6 +480,20 @@ class Nsp(Pfs0):
 				nca.header.setRightsId(0)
 				nca.header.setKeyBlock(encKeyBlock)
 				Hex.dump(encKeyBlock)
+
+	def setGameCard(self, isGameCard = False):
+		if isGameCard:
+			targetValue = 1
+		else:
+			targetValue = 0
+
+		for nca in self:
+			if type(nca) == Nca:
+				if nca.header.getIsGameCard() == targetValue:
+					continue
+
+				Print.info('writing isGameCard for %s, %d' % (str(nca._path),  targetValue))
+				nca.header.setIsGameCard(targetValue)
 			
 		
 	def pack(self, files):
