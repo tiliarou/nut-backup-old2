@@ -51,11 +51,18 @@ def loadTitleWhitelist():
 			titleWhitelist.append(line.strip().upper())
 			
 def loadTitleBlacklist():
-	global titleBlacklist
-	titleBlacklist = []
+	Config.titleBlacklist = []
 	with open('conf/blacklist.txt', encoding="utf8") as f:
 		for line in f.readlines():
-			titleBlacklist.append(line.strip().upper())
+			id = line.split('|')[0].strip().upper()
+			if id:
+				Config.titleBlacklist.append(id)
+
+	with open('conf/retailOnly.blacklist', encoding="utf8") as f:
+		for line in f.readlines():
+			id = line.split('|')[0].strip().upper()
+			if id:
+				Config.titleBlacklist.append(id)
 			
 def logMissingTitles(file):
 	initTitles()
@@ -64,7 +71,7 @@ def logMissingTitles(file):
 	f = open(file,"w", encoding="utf-8-sig")
 	
 	for k,t in Titles.items():
-		if t.isUpdateAvailable() and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
+		if t.isUpdateAvailable() and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in Config.titleBlacklist:
 			if not t.id or t.id == '0' * 16 or (t.isUpdate and t.lastestVersion() in [None, '0']):
 				continue
 			f.write((t.id or ('0'*16)) + '|' + (t.key or ('0'*32)) + '|' + (t.name or '') + "\r\n")
@@ -80,7 +87,7 @@ def logNcaDeltas(file):
 	for k,f in Nsps.files.items():
 		try:
 			t = f.title()
-			if (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
+			if (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in Config.titleBlacklist:
 				f.open(f.path)
 				if f.hasDeltas():
 					Print.info(f.path)
@@ -211,13 +218,13 @@ def downloadAll(wait = True):
 	try:
 
 		for k,t in Titles.items():
-			if t.isUpdateAvailable() and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
+			if t.isUpdateAvailable() and (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in Config.titleBlacklist:
 				if not t.id or t.id == '0' * 16 or (t.isUpdate and t.lastestVersion() in [None, '0']):
 					#Print.warning('no valid id? ' + str(t.path))
 					continue
 				
 				if not t.lastestVersion():
-					Print.info('Could not get version for ' + str(t.name))
+					Print.info('Could not get version for ' + str(t.name) + ' [' + str(t.id) + ']')
 					continue
 
 				Titles.queue.add(t.id)
@@ -417,7 +424,7 @@ def updateVersions(force = True):
 	i = 0
 	for k,t in Titles.items():
 		if force or t.version == None:
-			if (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in titleBlacklist:
+			if (t.isDLC or t.isUpdate or Config.download.base) and (not t.isDLC or Config.download.DLC) and (not t.isDemo or Config.download.demo) and (not t.isUpdate or Config.download.update) and (t.key or Config.download.sansTitleKey) and (len(titleWhitelist) == 0 or t.id in titleWhitelist) and t.id not in Config.titleBlacklist:
 				v = t.lastestVersion(True)
 				Print.info("%s[%s] v = %s" % (str(t.name), str(t.id), str(v)) )
 			
@@ -484,6 +491,12 @@ def unlockAll():
 				f.close()
 			except BaseException as e:
 				Print.info('error unlocking: ' + str(e))
+
+def exportVerifiedKeys(fileName):
+	with open(fileName, 'w') as f:
+		f.write('id|key\n')
+		for tid,key in blockchain.blockchain.export().items():
+			f.write(str(tid) + '|' + str(key) + '\n')
 
 def submitKeys():
 	for id, t in Titles.items():
@@ -608,6 +621,14 @@ def download(id):
 	if Titles.contains(id):
 		title = Titles.get(id)
 
+		if version == None:
+			version = title.lastestVersion()
+
+		if version == None:
+			if not title.key:
+				Titles.erase(id)
+			return False
+
 		CDNSP.download_game(title.id.lower(), version or title.lastestVersion(), key or title.key, True, '', True)
 	else:
 		CDNSP.download_game(id.lower(), version or Title.getCdnVersion(id.lower()), key, True, '', True)
@@ -687,6 +708,7 @@ if __name__ == '__main__':
 		parser.add_argument('-p', '--port', type=int, help='Set server port')
 		parser.add_argument('-b', '--blockchain', action="store_true", help='run blockchain server')
 		parser.add_argument('-k', '--submit-keys', action="store_true", help='Submit all title keys to blockchain')
+		parser.add_argument('-K', '--export-verified-keys', help='Exports verified title keys from blockchain')
 
 		parser.add_argument('--scrape', action="store_true", help='Scrape ALL titles from Nintendo servers')
 		parser.add_argument('--scrape-delta', action="store_true", help='Scrape ALL titles from Nintendo servers that have not been scraped yet')
@@ -969,6 +991,7 @@ if __name__ == '__main__':
 		
 		if args.download_all:
 			downloadAll()
+			Titles.save()
 		
 		if args.export:
 			initTitles()
@@ -1020,6 +1043,9 @@ if __name__ == '__main__':
 			initTitles()
 			initFiles()
 			startBaseScan()
+
+		if args.export_verified_keys:
+			exportVerifiedKeys(args.export_verified_keys)
 
 		Status.close()
 	
