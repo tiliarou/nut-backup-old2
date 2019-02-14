@@ -1,7 +1,7 @@
-import aes128
-import Title
-import Titles
-import Hex
+from nut import aes128
+from nut import Title
+from nut import Titles
+from nut import Hex
 from binascii import hexlify as hx, unhexlify as uhx
 from struct import pack as pk, unpack as upk
 from Fs.File import File
@@ -10,15 +10,16 @@ import Fs.Type
 import os
 import re
 import pathlib
-import Keys
-import Config
-import Print
-import Nsps
+from nut import Keys
+from nut import Config
+from nut import Print
+from nut import Nsps
 from tqdm import tqdm
 from Fs.Pfs0 import Pfs0
 from Fs.Ticket import Ticket
 from Fs.Nca import Nca
 import shutil
+from nut import blockchain
 
 MEDIA_SIZE = 0x200
 
@@ -135,9 +136,14 @@ class Nsp(Pfs0):
 			rightsId = hx(t.getRightsId().to_bytes(0x10, byteorder='big')).decode('utf-8').upper()
 			self.titleId = rightsId[0:16]
 			self.title().setRightsId(rightsId)
-			Print.debug('rightsId = ' + rightsId)
-			Print.debug(self.titleId + ' key = ' +  str(t.getTitleKeyBlock()))
-			self.setHasValidTicket(t.getTitleKeyBlock() != 0)
+			Print.info('rightsId = ' + rightsId)
+			
+			titleKey = t.getTitleKeyBlock()
+			titleKeyStr = format(titleKey, 'X').zfill(32)
+			if titleKey != 0 and blockchain.verifyKey(self.titleId, titleKeyStr):
+				Print.info(self.titleId + ' key = ' +  titleKeyStr)
+				self.title().setKey(titleKeyStr)
+				self.setHasValidTicket(True)
 		except BaseException as e:
 			Print.info('readMeta filed ' + self.path + ", " + str(e))
 			raise

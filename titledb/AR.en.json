@@ -1,7 +1,7 @@
 {
     "70010000000025": {
         "id": "01007EF00011E000",
-        "rightsId": null,
+        "rightsId": "01007EF00011E0000000000000000000",
         "name": "The Legend of Zelda\u2122: Breath of the Wild",
         "version": null,
         "key": null,
@@ -51,7 +51,7 @@
     },
     "70010000000141": {
         "id": "01000320000CC000",
-        "rightsId": null,
+        "rightsId": "01000320000CC0000000000000000000",
         "name": "1-2-Switch\u2122",
         "version": null,
         "key": null,
@@ -90,11 +90,11 @@
             "es",
             "fr"
         ],
-        "size": 1496317952
+        "size": 1500512256
     },
     "70010000000142": {
         "id": "0100704000B3A000",
-        "rightsId": null,
+        "rightsId": "0100704000B3A0000000000000000000",
         "name": "Snipperclips\u2122 \u2013 Cut it out, together!",
         "version": null,
         "key": null,
@@ -131,11 +131,11 @@
             "es",
             "fr"
         ],
-        "size": 1581252608
+        "size": 1585446912
     },
     "70010000000153": {
         "id": "0100152000022000",
-        "rightsId": null,
+        "rightsId": "01001520000220000000000000000000",
         "name": "Mario Kart\u2122 8 Deluxe",
         "version": null,
         "key": null,
@@ -174,11 +174,11 @@
             "es",
             "fr"
         ],
-        "size": 7395606528
+        "size": 7401897984
     },
     "70010000000392": {
         "id": "01009B500007C000",
-        "rightsId": null,
+        "rightsId": "01009B500007C0000000000000000000",
         "name": "ARMS\u2122",
         "version": null,
         "key": null,
@@ -223,11 +223,11 @@
             "ru",
             "ko"
         ],
-        "size": 3479175168
+        "size": 3484418048
     },
     "70010000000447": {
         "id": "010003F003A34000",
-        "rightsId": null,
+        "rightsId": "010003F003A340000000000000000005",
         "name": "Pok\u00e9mon\u2122: Let\u2019s Go, Pikachu!",
         "version": null,
         "key": null,
@@ -259,17 +259,17 @@
         ],
         "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/74feff17dacf94e5d4df02e82a46b812d4472cf2fb612c83d149a02d2a4b6290.jpg",
         "intro": "The next step in your Pok\u00e9mon\u2122\njourney starts here",
-        "description": "Take a Pok\u00e9mon\u2122 journey to the Kanto region with your energetic partner, Pikachu! Become the best Pok\u00e9mon Trainer as you battle other Trainers, Gym Leaders, and the sinister Team Rocket. Catch Pok\u00e9mon in the wild using a gentle throwing motion with either a Joy-Con\u2122 controller or a Pok\u00e9 Ball\u2122 Plus accessory, which will light up, vibrate, and make sounds to bring your adventure to life. You can also use button controls in Handheld Mode. Share your adventure with family or friends using a second Joy-Con or Pok\u00e9 Ball Plus (sold separately). You can even connect to the Pok\u00e9mon\u2122 GO app* using a compatible smartphone to bring over Pok\u00e9mon originally discovered in the Kanto region! Explore the vibrant region of Kanto\u2014home to beloved characters like Brock, Misty, and the nefarious trio Jessie, James, and Meowth! Throughout the story, your bond with your partner Pok\u00e9mon grows stronger as you care for it and travel together. See the world in style by customizing Pikachu and your Trainer with a selection of outfits. True-to-size wild Pok\u00e9mon roam around in the game\u2014catch them like a real Pok\u00e9mon Trainer by using timing and a well-placed Pok\u00e9 Ball\u2122. Battle and trade with other players who own the game via local wireless or online**. Go on a stroll with your favorite Pok\u00e9mon in your Pok\u00e9 Ball Plus to level them up, and to receive in-game rewards after returning them to the game. Connect to Pok\u00e9mon GO* to transfer caught Kanto-region Pok\u00e9mon, including Alolan and Shiny forms, as well as the newly discovered Pok\u00e9mon, Meltan, from that game to this one! ",
+        "description": "Download the game demo for free! \nHello new Pok\u00e9mon Trainers, a demo of Pok\u00e9mon: Let\u2019s Go, Pikachu! and Pok\u00e9mon: Let\u2019s Go, Eevee! games is available just for you. Explore Viridian Forest, where you can catch Pok\u00e9mon in the wild and battle trainers with either a partner Pikachu or a partner Eevee at your side (randomly selected). Start your journey now.\n* Final game content may vary from this demo. \n* Demo game data cannot be transferred to the purchased game.\n\n\nTake a Pok\u00e9mon\u2122 journey to the Kanto region with your energetic partner, Pikachu! Become the best Pok\u00e9mon Trainer as you battle other Trainers, Gym Leaders, and the sinister Team Rocket. Catch Pok\u00e9mon in the wild using a gentle throwing motion with either a Joy-Con\u2122 controller or a Pok\u00e9 Ball\u2122 Plus accessory, which will light up, vibrate, and make sounds to bring your adventure to life. You can also use button controls in Handheld Mode. Share your adventure with family or friends using a second Joy-Con or Pok\u00e9 Ball Plus (sold separately). You can even connect to the Pok\u00e9mon\u2122 GO app* using a compatible smartphone to bring over Pok\u00e9mon originally discovered in the Kanto region! Explore the vibrant region of Kanto\u2014home to beloved characters like Brock, Misty, and the nefarious trio Jessie, James, and Meowth! Throughout the story, your bond with your partner Pok\u00e9mon grows stronger as you care for it and travel together. See the world in style by customizing Pikachu and your Trainer with a selection of outfits. True-to-size wild Pok\u00e9mon roam around in the game\u2014catch them like a real Pok\u00e9mon Trainer by using timing and a well-placed Pok\u00e9 Ball\u2122. Battle and trade with other players who own the game via local wireless or online**. Go on a stroll with your favorite Pok\u00e9mon in your Pok\u00e9 Ball Plus to level them up, and to receive in-game rewards after returning them to the game. Connect to Pok\u00e9mon GO* to transfer caught Kanto-region Pok\u00e9mon, including Alolan and Shiny forms, as well as the newly discovered Pok\u00e9mon, Meltan, from that game to this one! ",
         "languages": [
             "en",
             "es",
             "fr"
         ],
-        "size": 4472176640
+        "size": 4515168256
     },
     "70010000000450": {
         "id": "0100187003A36000",
-        "rightsId": null,
+        "rightsId": "0100187003A360000000000000000005",
         "name": "Pok\u00e9mon\u2122: Let\u2019s Go, Eevee!",
         "version": null,
         "key": null,
@@ -301,17 +301,17 @@
         ],
         "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/d1010bae4d6b89cc11c3600ceeb68a36fb107bce3b8acfa9115b959add151d3e.jpg",
         "intro": "The next step in your Pok\u00e9mon\u2122\njourney starts here",
-        "description": "Take a Pok\u00e9mon\u2122 journey to the Kanto region with your steadfast partner, Eevee! Become the best Pok\u00e9mon Trainer as you battle other Trainers, Gym Leaders, and the sinister Team Rocket. Catch Pok\u00e9mon in the wild using a gentle throwing motion with either a Joy-Con\u2122 controller or a Pok\u00e9 Ball\u2122 Plus accessory, which will light up, vibrate, and make sounds to bring your adventure to life. You can also use button controls in Handheld Mode. Share your adventure with family or friends using a second Joy-Con or Pok\u00e9 Ball Plus (sold separately). You can even connect to the Pok\u00e9mon\u2122 GO app* using a compatible smartphone to bring over Pok\u00e9mon originally discovered in the Kanto region! Explore the vibrant region of Kanto\u2014home to beloved characters like Brock, Misty, and the nefarious trio Jessie, James, and Meowth! Throughout the story, your bond with your partner Pok\u00e9mon grows stronger as you care for it and travel together. See the world in style by customizing Eevee and your Trainer with a selection of outfits. True-to-size wild Pok\u00e9mon roam around in the game\u2014catch them like a real Pok\u00e9mon Trainer by using timing and a well-placed Pok\u00e9 Ball\u2122. Battle and trade with other players who own the game via local wireless or online**. Go on a stroll with your favorite Pok\u00e9mon in your Pok\u00e9 Ball Plus to level them up, and to receive in-game rewards after returning them to the game. Connect to Pok\u00e9mon GO* to transfer caught Kanto-region Pok\u00e9mon, including Alolan and Shiny forms, as well as the newly discovered Pok\u00e9mon, Meltan, from that game to this one! ",
+        "description": "Download the game demo for free! \nHello new Pok\u00e9mon Trainers, a demo of Pok\u00e9mon: Let\u2019s Go, Pikachu! and Pok\u00e9mon: Let\u2019s Go, Eevee! games is available just for you. Explore Viridian Forest, where you can catch Pok\u00e9mon in the wild and battle trainers with either a partner Pikachu or a partner Eevee at your side (randomly selected). Start your journey now.\n* Final game content may vary from this demo. \n* Demo game data cannot be transferred to the purchased game.\n\n\nTake a Pok\u00e9mon\u2122 journey to the Kanto region with your steadfast partner, Eevee! Become the best Pok\u00e9mon Trainer as you battle other Trainers, Gym Leaders, and the sinister Team Rocket. Catch Pok\u00e9mon in the wild using a gentle throwing motion with either a Joy-Con\u2122 controller or a Pok\u00e9 Ball\u2122 Plus accessory, which will light up, vibrate, and make sounds to bring your adventure to life. You can also use button controls in Handheld Mode. Share your adventure with family or friends using a second Joy-Con or Pok\u00e9 Ball Plus (sold separately). You can even connect to the Pok\u00e9mon\u2122 GO app* using a compatible smartphone to bring over Pok\u00e9mon originally discovered in the Kanto region! Explore the vibrant region of Kanto\u2014home to beloved characters like Brock, Misty, and the nefarious trio Jessie, James, and Meowth! Throughout the story, your bond with your partner Pok\u00e9mon grows stronger as you care for it and travel together. See the world in style by customizing Eevee and your Trainer with a selection of outfits. True-to-size wild Pok\u00e9mon roam around in the game\u2014catch them like a real Pok\u00e9mon Trainer by using timing and a well-placed Pok\u00e9 Ball\u2122. Battle and trade with other players who own the game via local wireless or online**. Go on a stroll with your favorite Pok\u00e9mon in your Pok\u00e9 Ball Plus to level them up, and to receive in-game rewards after returning them to the game. Connect to Pok\u00e9mon GO* to transfer caught Kanto-region Pok\u00e9mon, including Alolan and Shiny forms, as well as the newly discovered Pok\u00e9mon, Meltan, from that game to this one! ",
         "languages": [
             "en",
             "es",
             "fr"
         ],
-        "size": 4475322368
+        "size": 4518313984
     },
     "70010000000529": {
         "id": "01003BC0000A0000",
-        "rightsId": null,
+        "rightsId": "01003BC0000A00000000000000000000",
         "name": "Splatoon\u2122 2",
         "version": null,
         "key": null,
@@ -350,11 +350,11 @@
             "es",
             "fr"
         ],
-        "size": 5931794432
+        "size": 6095372288
     },
     "70010000000600": {
         "id": "0100F15003E64000",
-        "rightsId": null,
+        "rightsId": "0100F15003E640000000000000000003",
         "name": "Fire Emblem Warriors",
         "version": null,
         "key": null,
@@ -393,11 +393,60 @@
             "de",
             "it"
         ],
-        "size": 14378074112
+        "size": 14385414144
+    },
+    "70010000000662": {
+        "id": "01002CC003FE6000",
+        "rightsId": "01002CC003FE60000000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Edition",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": null,
+        "nsuId": 70010000000662,
+        "category": [
+            "Arcade",
+            "Adventure",
+            "RPG",
+            "Other"
+        ],
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": 2,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/fa39e175cae3fe974d58cdcb2adc05cb1240fa1f20efb069e9e3a0cb57f89088.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/bad4b3dc327f73960ba3d978e53abea6fd239b95b7a4d7101d4ff1300d99eccf.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/6ce5dfb269e9ca6c1190eb89fd7806cf60bc1052b1fbc2894107070d7eb29a7e.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/0f2609b329679b0d7cfa1735055106b3cc772c230bd859f098abc45438827a2b.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/85995cda89e07eecfe35e209f5e04914f6bf2b32b6ed6a5618db1ff5a0c419cc.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/247ae2c66116c1f48c6406ec750982b88ff4bd9b175c94d1663db16a415fc5a9.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/b44b69971813c744e1685496406fd62d0463d63f7e263f200d352eee160d6194.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/96c5854c4001e4780735ecf06b2a8c692618a00e314a9c1b75c93cde01a2312a.jpg",
+        "intro": null,
+        "description": "Lead a group of interstellar pilots dedicated to free the Atlas Star System from Grax and the Forgotten Legion. Featuring guest pilot Fox McCloud and his Arwing. Plus bonus Star Fox missions!\n\nStart your adventure with 5 Starships, 7 pilots, and 12 weapons \u2013 all included. \n\nStarships:\nArwing\nZenith\nNeptune\nPulse\nLance \n\nPilots:\nFox McCloud\nMason Rana \nLevi McCray\nJudge\nChase da Silva\nHunter Hakka\nRazor Lemay \n\nWeapons:\nFlamethrower \nFrost Barrage \nShredder\nIron Fist\nCrusher\nShockwave\nLevitator\nVolcano\nImploder\nFreeze Ray Mk.2\nShredder Mk.2\nGauss Gun Mk.2 \n\nMix and match parts to customize your starship, and build your own playstyle with unique pilot abilities and weapons. Nintendo Switch\u2122 System exclusive:  Fox McCloud pilot, Arwing ship, and exclusive missions!",
+        "languages": [
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "nl",
+            "pt",
+            "zh"
+        ],
+        "size": 14120124416
     },
     "70010000000705": {
         "id": "010095A004040000",
-        "rightsId": null,
+        "rightsId": "010095A0040400000000000000000000",
         "name": "Flip Wars",
         "version": null,
         "key": null,
@@ -442,11 +491,11 @@
             "ru",
             "zh"
         ],
-        "size": 438304768
+        "size": 442499072
     },
     "70010000000707": {
         "id": "0100E95004038000",
-        "rightsId": null,
+        "rightsId": "0100E950040380000000000000000003",
         "name": "Xenoblade Chronicles\u2122 2",
         "version": null,
         "key": null,
@@ -487,11 +536,51 @@
             "de",
             "it"
         ],
-        "size": 14150533120
+        "size": 14164164608
+    },
+    "70010000000734": {
+        "id": "01006000040C2000",
+        "rightsId": null,
+        "name": "Yoshi\u2019s Crafted World\u2122",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20190329,
+        "nsuId": 70010000000734,
+        "category": [
+            "Action",
+            "Platformer"
+        ],
+        "ratingContent": [
+            "Mild Cartoon Violence"
+        ],
+        "numberOfPlayers": 2,
+        "rating": 6,
+        "developer": null,
+        "publisher": "Nintendo",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/eb4db2538ac3d439fce167fe2c23d2a58b09a80fdf1a8d00d1cbae50481f374f.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/9aa9468e9adeb140d52ba44f3646a8b202a38bd4bb0a5e752b5feb2b51046495.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/cb50f4bade1f501323f9397063f22356ae6e874d39a6c5947c0fac1fc2a74ec7.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/0369ede6ebf36644e53e9d5aac826f5175d1688a43a3436cf2287cf3b8943a60.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/1cd3a1127f4d34e03914f2d0e3484813bf3216afb36b59d62e7dbc8c2300e3f8.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/ed06a0cf6319158906704d60be28b94bb4a9bdeeb8bc89679ab0bb72d0dcc570.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/0b877ba2cdc8d08ff70335743594bc96cd722916b350b6eaaa8956f94b2d41e3.jpg",
+        "intro": "Get crafty with Yoshi in\na handicraft world",
+        "description": "Jump into a new Yoshi adventure in a world made of everyday objects\u2014like boxes and paper cups! As Yoshi, you\u2019ll leap up high, gulp down enemies, and set out on a treasure hunt to find all the different collectables. On the flip side, stages can be played backwards, providing new perspectives to explore and new ways to locate some of the more craftily hidden items! this fabled artifact can grant the bearer their wildest dreams! But when the artifact\u2019s gems are sent flying, it falls upon Yoshi and friends to find them. Luckily, saving the day can be cooperative and challenging. Pass a Joy-ConTM controller to a friend to team up as fellow Yoshis. Also, Mellow mode gives Yoshi wings for a breezier experience, which may come in handy! Finding all the flowers, coins, and Poochy Pups is no small feat! For extra protection, suit up in one of the handicraft costumes you can unlock in-game!",
+        "languages": [
+            "en",
+            "es",
+            "fr"
+        ],
+        "size": 5692719104
     },
     "70010000001107": {
         "id": "01007960049A0000",
-        "rightsId": null,
+        "rightsId": "01007960049A00000000000000000003",
         "name": "Bayonetta\u2122 2",
         "version": null,
         "key": null,
@@ -534,11 +623,11 @@
             "de",
             "it"
         ],
-        "size": 13324255232
+        "size": 13330546688
     },
     "70010000001109": {
         "id": "010076F0049A2000",
-        "rightsId": null,
+        "rightsId": "010076F0049A20000000000000000003",
         "name": "Bayonetta\u2122",
         "version": null,
         "key": null,
@@ -581,11 +670,11 @@
             "de",
             "it"
         ],
-        "size": 9214885888
+        "size": 9221177344
     },
     "70010000001130": {
         "id": "0100000000010000",
-        "rightsId": null,
+        "rightsId": "01000000000100000000000000000003",
         "name": "Super Mario Odyssey\u2122",
         "version": null,
         "key": null,
@@ -629,11 +718,11 @@
             "ru",
             "zh"
         ],
-        "size": 5906628608
+        "size": 5913968640
     },
     "70010000001132": {
         "id": "0100B3F000BE2000",
-        "rightsId": null,
+        "rightsId": "0100B3F000BE20000000000000000000",
         "name": "Pokk\u00e9n Tournament\u2122 DX",
         "version": null,
         "key": null,
@@ -674,11 +763,11 @@
             "de",
             "it"
         ],
-        "size": 4255121408
+        "size": 4260364288
     },
     "70010000001339": {
         "id": "0100C1F0051B6000",
-        "rightsId": null,
+        "rightsId": "0100C1F0051B60000000000000000004",
         "name": "Donkey Kong Country\u2122: Tropical Freeze",
         "version": null,
         "key": null,
@@ -715,11 +804,61 @@
             "es",
             "fr"
         ],
-        "size": 7158628352
+        "size": 7163871232
+    },
+    "70010000001515": {
+        "id": "010095300212A000",
+        "rightsId": "010095300212A0000000000000000003",
+        "name": "Resident Evil Revelations 2",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181224,
+        "nsuId": 70010000001515,
+        "category": [
+            "Action"
+        ],
+        "ratingContent": [
+            "Blood and Gore",
+            "Intense Violence",
+            "Online Interactions Not Rated by the ESRB",
+            "Strong Language"
+        ],
+        "numberOfPlayers": 2,
+        "rating": 17,
+        "developer": null,
+        "publisher": "CAPCOM",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/c4ae8e6f29c8e411dd59b9affa773b00dbdbfe5a7f2349d444c98bb4dcbb1383.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/ab181d3458bf86c90c5c47ae037ceb29d9a52277eebd07f1d98a5eff1511ae74.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/d080a6eccc7c1071b46d59b1d394352a9d8d3ecf1679df77722c4fd15d5c5d72.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/1223e68a7e0d8865c90a9082705917bcb52c378b8cd329d810f1c256ca2a11a2.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/3dd45b884cd0f4d0535d47c1910eac07621e65b38c3fadde2db558b8f5ea852f.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/1de64438c4cb8ad46ec84535469b7a8e6810ee2728e2fb323484447fdcc057bd.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/5216f24968dae16cd0274803f17fcd675bb99482230101aaa38d01fc873552a5.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/45a131c42a6c4d0923f738d6393f034a0daca4f280e17c8f193cee151921c7d8.jpg",
+        "intro": "Evil is watching",
+        "description": "The beginning of the Resident Evil Revelations 2 tale sees fan favorite Claire Redfield make a dramatic return. Survivor of the Raccoon City incident depicted in previous Resident Evil games, Claire now works for the anti-bioterrorism organization Terra Save. Moira Burton, is attending her welcome party for Terra Save when unknown armed forces storm the office. Claire and Moira are knocked unconscious and awaken later to find themselves in a dark and abandoned detention facility. Working together, they must find out who took them and to what sinister end. Will Claire and Moira make it out alive and discover what\u2019s led to them being taken to this remote island? A story of twists and turns will have players guessing the next step at every turn.\n\nEnhance your gameplay experience even further with additional motion controls that let you aim and wield your weapons with greater accuracy on the Nintendo Switch.",
+        "languages": [
+            "ja",
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "pt",
+            "ru",
+            "ko",
+            "zh"
+        ],
+        "size": 25377636352
     },
     "70010000001618": {
         "id": "010057D006492000",
-        "rightsId": null,
+        "rightsId": "010057D0064920000000000000000004",
         "name": "Octopath Traveler\u2122",
         "version": null,
         "key": null,
@@ -764,7 +903,7 @@
     },
     "70010000002365": {
         "id": "01007E3006DDA000",
-        "rightsId": null,
+        "rightsId": "01007E3006DDA0000000000000000004",
         "name": "Kirby\u2122 Star Allies",
         "version": null,
         "key": null,
@@ -800,11 +939,11 @@
             "es",
             "fr"
         ],
-        "size": 3601858560
+        "size": 4244635648
     },
     "70010000002722": {
         "id": "01009BF0072D4000",
-        "rightsId": null,
+        "rightsId": "01009BF0072D40000000000000000004",
         "name": "Captain Toad\u2122: Treasure Tracker",
         "version": null,
         "key": null,
@@ -841,11 +980,61 @@
             "es",
             "fr"
         ],
-        "size": 1587544064
+        "size": 1592786944
+    },
+    "70010000003208": {
+        "id": "0100633007D48000",
+        "rightsId": "0100633007D480000000000000000004",
+        "name": "Hollow Knight",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": null,
+        "nsuId": 70010000003208,
+        "category": [
+            "Action",
+            "Adventure",
+            "Platformer"
+        ],
+        "ratingContent": [
+            "Fantasy Violence",
+            "Mild Blood"
+        ],
+        "numberOfPlayers": 1,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Team Cherry",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/91540557d07599fd6b8d63e544320fc682e71ec8d30f2b7c3d13568af18323be.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/50162a28f3e73c7e80021d799acce991a0b051105f209565088cd254a2a986d1.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/208c3efdf8bf7cb5ba1f2154f5508d97af71b7853dc8e7eff302d3b1804bb178.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/6266f71028d118acbc56f2952106b99b8a81de0c4d80db5729db2f2d8c48b15e.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/ddcf359a6e8a2bb8b2eabf9fc26b9511b047745320c2d56aeabf24222f0967fc.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/c9eaec86c13661401717a75546d7e6af55fa0da8b3d3e41e9d58b0c037cc7de7.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/93309648ca2cf8d7a269da8f3deb386833497d857e8344d339caf3f81fc8a2f1.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/4643fb058642335c523910f3a7910575f56372f612f7c0c9a497aaae978d3e51.jpg",
+        "intro": "Forge your own path in Hollow Knight! An epic action adventure through a vast, ruined kingdom of insects and heroes.",
+        "description": "Hollow Knight is a classically styled 2D action adventure across a vast interconnected world. Explore twisting caverns, ancient cities and deadly wastes; battle tainted creatures and befriend bizarre bugs; and solve ancient mysteries at the kingdom's heart.\n\nIncludes free content packs! All new quests, boss battles and secrets!\n\u2022 Hidden Dreams: Mighty new foes emerge! New Boss fights. New Upgrades. New Music.\n\u2022 The Grimm Troupe: Light the Nightmare Lantern. Summon the Troupe. New Major Quest. New Boss Fights. New Charms. New Enemies. New Friends.\n\u2022 Lifeblood: New mapping tools. New Boss fight. Upgraded Bosses. New Music. Hidden Extras!\n\nGame Features\n\u2022 Classic side-scrolling action, with all the modern trimmings.\n\u2022 Forge your own path! The world of Hallownest is expansive and open. Choose which paths you take, which enemies you face and find your own way forward.\n\u2022 Evolve with powerful new skills and abilities! Gain spells, strength and speed. Leap to new heights on ethereal wings. Dash forward in a blazing flash. Blast foes with fiery Soul!\n\u2022 Equip Charms! Ancient relics that offer bizarre new powers and abilities. Choose your favourites and make your journey unique!\n\u2022 An enormous cast of cute and creepy characters all brought to life with traditional 2D frame-by-frame animation.\n\u2022 Over 140 enemies! 30 epic bosses! Face ferocious beasts and vanquish ancient knights on your quest through the kingdom.\n\u2022 Chart your journey with extensive mapping tools. Buy compasses, quills, maps and pins to enhance your understanding of Hollow Knight\u2019s many twisting landscapes.\n\u2022 A haunting, intimate score accompanies the player on their journey, composed by Christopher Larkin.",
+        "languages": [
+            "ja",
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "pt",
+            "ru",
+            "ko",
+            "zh"
+        ],
+        "size": 5689573376
     },
     "70010000003482": {
         "id": "01005D100807A000",
-        "rightsId": null,
+        "rightsId": "01005D100807A0000000000000000004",
         "name": "Pok\u00e9mon\u2122 Quest",
         "version": null,
         "key": null,
@@ -892,7 +1081,7 @@
     },
     "70010000003842": {
         "id": "0100DDD0085A4000",
-        "rightsId": null,
+        "rightsId": "0100DDD0085A40000000000000000004",
         "name": "Sushi Striker\u2122: The Way of Sushido",
         "version": null,
         "key": null,
@@ -930,11 +1119,11 @@
             "es",
             "fr"
         ],
-        "size": 2963275776
+        "size": 2968518656
     },
     "70010000003889": {
         "id": "0100BDE00862A000",
-        "rightsId": null,
+        "rightsId": "0100BDE00862A0000000000000000004",
         "name": "Mario Tennis\u2122 Aces",
         "version": null,
         "key": null,
@@ -978,11 +1167,11 @@
             "ko",
             "zh"
         ],
-        "size": 2256535552
+        "size": 2347761664
     },
     "70010000003971": {
         "id": "01005250086C4000",
-        "rightsId": null,
+        "rightsId": "01005250086C40000000000000000004",
         "name": "Mega Man X Legacy Collection 2",
         "version": null,
         "key": null,
@@ -1025,9 +1214,53 @@
         ],
         "size": 7129268224
     },
+    "70010000004682": {
+        "id": "0100842008EC4000",
+        "rightsId": "0100842008EC40000000000000000004",
+        "name": "Mega Man Legacy Collection 2",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181224,
+        "nsuId": 70010000004682,
+        "category": [
+            "Action",
+            "Platformer"
+        ],
+        "ratingContent": [
+            "Fantasy Violence"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "CAPCOM",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/1e43ffef0f0709bf3449a2689f4c27970bc345bc6d1ad33ff0711e0f9bc54c77.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/6d902340f0f8dfd611d4575971a9a5b65e7fd8686bd6d868078e140484b17196.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/7717fa5697a2fcf4848ab7086dde9b376bc45b610f4bdd99194ccf29517d88ce.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/7a827f2bb840cb604b0d92b19312fa3128709a571ca60038dca66130783e9638.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/a17abb8f5f2fad185e30e35b2220f1151ebc72ddbd41fb757624e9250ac40f0a.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/02ab4e6d034a140d0b46b743f2f915afc142fd4c0587e82be21fed8a2bc59383.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/1394335f2dcc62499c0f3a051fa594a10795e9d9b5518870cc79c654efbba173.jpg",
+        "intro": "4 Hits in 1 MEGA Package!\nThere's a ton of extra content in Mega Man Legacy Collection 2!",
+        "description": "The Blue Bomber is back in this second collection of classic Capcom titles! Featuring faithful reproductions of Mega Man 7, 8, 9, & 10, this collection spans the iconic series' evolution and retro revolution. Take on the nefarious Dr. Wily and his diverse Robot Masters in these timeless 8-bit, 16-bit, and 32-bit adventures!\n\nMega Man Legacy Collection 2 is bursting with additional content, including time trials, remix challenges, a music player, and an extensive gallery of rare illustrations. Also included are the additional modes originally released as DLC for Mega Man 9 and 10, featuring extra stages and playable characters. For anyone who wants a little extra help with these challenging classic platformers, you now have the option to reduce the amount of damage received.",
+        "languages": [
+            "ja",
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "zh"
+        ],
+        "size": 3468689408
+    },
     "70010000005382": {
         "id": "0100FFA0093E8000",
-        "rightsId": null,
+        "rightsId": "0100FFA0093E80000000000000000005",
         "name": "FIFA 19",
         "version": null,
         "key": null,
@@ -1055,9 +1288,9 @@
             "https://img-eshop.cdn.nintendo.net/i/232a8acef626758c49f0c82852f3c9b64d697c818eaf776f9d196c5ff644422d.jpg",
             "https://img-eshop.cdn.nintendo.net/i/54be3434542876058d34cf8a82c85da308b681c9e23eaacd4575659e08bda50a.jpg"
         ],
-        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/a2359c29588a4bb51624e193ffb2ac79d94348b93915f29500e618f7dafe0c41.jpg",
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/0f1ae7d4d90b2f41bc7fc5444f584936588b3692b2fef37b38b6145e1d7490ea.jpg",
         "intro": "CHAMPIONS RISE IN FIFA 19",
-        "description": "EA SPORTS\u2122 FIFA 19 delivers a champion-caliber experience on and off the pitch. Led by the prestigious UEFA Champions League, FIFA 19 offers enhanced gameplay features that allow you to control the pitch in every moment. There are new and unrivaled ways to play, including a new mode in the ever-popular FIFA Ultimate Team\u2122 and a new Kick-Off mode experience. Champions Rise in FIFA 19.\n\nUEFA Champions League / UEFA Europa League / UEFA Super Cup\nPlay the pinnacle of club football across a variety of modes in FIFA 19 with official match presentation, breadth in tournament experiences, including UEFA Champions League, Europa League and Super Cup, and an all-new commentary team in Derek Rae and Lee Dixon.\n\nIn-Match Experience\nImmerse yourself in the most authentic football experience ever seen before on Nintendo Switch. Featuring distinctive team and player personalities, introducing official broadcast presentation for the some of the world\u2019s biggest leagues, and elevating your ability to finish with the all-new striking overhaul. \n\nConsole Configurations\nExperience FIFA wherever, whenever and however you want. Connect to your television and play Single or Multiplayer, or take the same modes on-the-go. \n\nSplit Joy-Con Support\nBuilt exclusively for Nintendo Switch, Split Joy-Con controls enables you to compete with your friends anytime and anywhere. Without any additional hardware, players can separate the Joy-Con controllers and enjoy multiplayer game modes at home, or on the go.\u00a0",
+        "description": "EA SPORTS\u2122 FIFA 19 delivers a champion-caliber experience on and off the pitch. Led by the prestigious UEFA Champions League, FIFA 19 offers enhanced gameplay features that allow you to control the pitch in every moment. There are new and unrivaled ways to play, including a new mode in the ever-popular FIFA Ultimate Team\u2122 and a new Kick-Off mode experience. Champions Rise in FIFA 19.\n\nUEFA Champions League / UEFA Europa League / UEFA Super Cup\nPlay the pinnacle of club football across a variety of modes in FIFA 19 with official match presentation, breadth in tournament experiences, including UEFA Champions League, Europa League and Super Cup, and an all-new commentary team in Derek Rae and Lee Dixon.\n\nIn-Match Experience\nImmerse yourself in the most authentic football experience ever seen before on Nintendo Switch\u2122. Featuring distinctive team and player personalities, introducing official broadcast presentation for the some of the world\u2019s biggest leagues, and elevating your ability to finish with the all-new striking overhaul. \n\nConsole Configurations\nExperience FIFA wherever, whenever and however you want. Connect to your television and play Single or Multiplayer, or take the same modes on-the-go. \n\nSplit Joy-Con\u2122 Support\nBuilt exclusively for Nintendo Switch, Split Joy-Con\u2122 controls enables you to compete with your friends anytime and anywhere. Without any additional hardware, players can separate the Joy-Con\u2122 controllers and enjoy multiplayer game modes at home, or on the go.\u00a0\n\nFIFA 19 Standard Edition includes: \n\u2022 1 Loan Player Item: One of Neymar Jr., Kevin De Bruyne or Paulo Dybala for 10 FUT Matches*\n\u2022 4 UEFA Champions League Kits*\n\u2022 5 UEFA Champions League Player Items (up to 85 overall rating)*",
         "languages": [
             "ja",
             "es",
@@ -1068,11 +1301,11 @@
             "nl",
             "ru"
         ],
-        "size": 15036579840
+        "size": 15117320192
     },
     "70010000006023": {
         "id": "0100AE00096EA000",
-        "rightsId": null,
+        "rightsId": "0100AE00096EA0000000000000000004",
         "name": "Hyrule Warriors: Definitive Edition",
         "version": null,
         "key": null,
@@ -1111,11 +1344,60 @@
             "es",
             "fr"
         ],
-        "size": 13870563328
+        "size": 13876854784
+    },
+    "70010000006411": {
+        "id": "0100EA80032EA000",
+        "rightsId": "0100EA80032EA0000000000000000004",
+        "name": "New Super Mario Bros.\u2122 U Deluxe",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20190111,
+        "nsuId": 70010000006411,
+        "category": [
+            "Platformer",
+            "Action"
+        ],
+        "ratingContent": [
+            "Comic Mischief"
+        ],
+        "numberOfPlayers": 4,
+        "rating": 6,
+        "developer": null,
+        "publisher": "Nintendo",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/658a846bafd5446bbdfc163c46937152887c6c39eb5f1e6b2337ddec3352b524.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/f7eab80bf81dace25f1372f2b0ac5a63e3653af74468f73f37c6bb27df638a93.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/5e1ca57f22a388d696dd0883ea3b5453c7c9e59ff0fea05dd912a2fcb88d1985.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/5d7c325d4bac7e8af8da21d05376a007e4701421cec4a9a8791677162817eed9.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/10ad0a494ed4eb05efebfbb08a7b878a65c17cdeb80101712eed1fe2966b86be.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/26826beae5aa713a619278d2003d44f15ca591d831a312e2f56aee7a709d7409.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/cf09bb956319bb998c3ac9ac52c19c5ad3ca72902451e2a683a3b03a87f6e0e9.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/73d58198e35bf94be752cf3d9ba0b44dea877cab1487e2cc1b7eeb02157f066f.jpg",
+        "intro": "Two Super Mario Bros. games in one, for double the fun!",
+        "description": "Join Mario, Luigi, and pals for single-player or multiplayer fun anytime, anywhere! Take on two family-friendly, side-scrolling adventures with up to three friends* as you try to save the Mushroom Kingdom. Includes the New Super Mario Bros. U and harder, faster New Super Luigi U games\u2014both of which include Nabbit and Toadette as playable characters!\n\nTwo games in one, for double the fun! Simple, straightforward controls, new playable characters optimized for younger and less-experienced players, and a wealth of bonus content\u2014like a Hints gallery and helpful reference videos**\u2014make this a perfect choice for anyone looking to introduce their family to the wonderful world of Mario. All a player needs is one Joy-Con\u2122 controller, so two people can team up right out of the box! Tackle 164 platforming courses in the two main game modes and enjoy extra replayability with three additional game modes in which you can also play as a Mii\u2122 character: Challenges, Boost Rush, and Coin Battle!\n\n*Additional accessories may be required for multiplayer mode. Sold separately.\n**Internet access required in order to access Videos gallery\n",
+        "languages": [
+            "ja",
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "nl",
+            "pt",
+            "ru",
+            "ko",
+            "zh"
+        ],
+        "size": 2696937472
     },
     "70010000006801": {
         "id": "010008900705C000",
-        "rightsId": null,
+        "rightsId": "010008900705C0000000000000000003",
         "name": "Dragon Quest Builders\u2122",
         "version": null,
         "key": null,
@@ -1159,11 +1441,11 @@
             "es",
             "fr"
         ],
-        "size": 850395136
+        "size": 855638016
     },
     "70010000008122": {
         "id": "01004AB00A260000",
-        "rightsId": null,
+        "rightsId": "01004AB00A2600000000000000000005",
         "name": "DARK SOULS\u2122: REMASTERED",
         "version": null,
         "key": null,
@@ -1212,9 +1494,98 @@
         ],
         "size": 4284481536
     },
+    "70010000009564": {
+        "id": "0100E7300AAD4000",
+        "rightsId": "0100E7300AAD40000000000000000005",
+        "name": "Fitness Boxing",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20190104,
+        "nsuId": 70010000009564,
+        "category": [
+            "Sports",
+            "Music"
+        ],
+        "ratingContent": [
+            "Mild Violence",
+            "Suggestive Themes"
+        ],
+        "numberOfPlayers": 2,
+        "rating": 13,
+        "developer": null,
+        "publisher": "Nintendo",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/183d43ab67c99a19e0ab87009cc9e0ed0342064bdeaa184ab31b3462ab9392a3.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/bcbeb95a2f58e9f77d7ad4722f5c020f5f7b1a6a09d719a11fb626e1e33fa7c3.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/42b3bce80ad77e6e7c5f0cbbe5e79562253638d6d911aa353e0810a013b37889.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/e2304669edafb3afbeacbe9095309b7389e158600a311f260508ae4c68a761f6.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/067c435cf9808771ca23d7c481b0e96ea709149207a7bce8000ac8e700906df3.jpg",
+        "intro": "Boxing-based workout to popular beats",
+        "description": "Get off the couch and get moving with fun, boxing-based rhythmic exercises set to the instrumental beats of songs by popular artists. You can personalize your workouts by selecting from different fitness goals. Train your way, whether you\u2019re on your own, with a friend, at home, or on the go! Now you can work out anytime, anywhere on the Nintendo Switch system!\n\nGet down your boxing basics while getting down to instrumental versions of 20 unlockable hit songs. Punch and squat while gripping the Joy-Con controllers to get your whole body moving\u2014no additional gym equipment required! \n\nDaily training ranges from 10-40 minutes and offers both Normal and Fast mode. The game software estimates your approximate BMI and daily calories burned so you can track your progress. Choose from a diverse group of trainers and customize their look with unlockable trainer outfits. As you progress, you can earn more songs and more challenging training circuits. If you prefer to work out with a buddy, you can use two sets of Joy-Con controllers or share a pair to enjoy working out cooperatively or test your skills by facing off against each other in a virtual ring!",
+        "languages": [
+            "en",
+            "es",
+            "fr"
+        ],
+        "size": 1092616192
+    },
+    "70010000010137": {
+        "id": "010075600AE96000",
+        "rightsId": "010075600AE960000000000000000005",
+        "name": "Just Dance\u00ae 2019",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": null,
+        "nsuId": 70010000010137,
+        "category": [
+            "Music",
+            "Party",
+            "Training",
+            "Simulation"
+        ],
+        "ratingContent": [
+            "Mild Lyrics"
+        ],
+        "numberOfPlayers": 6,
+        "rating": 6,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/ecb1aa407bc963d93a6d45ae2591bd3833884810dda16bbb6957f21d60e7795f.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/32e7498e2bb65589b62654e95377ec1d63d8067e2a04ea561146e7e2b45760ce.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/9c1450235a5ed97e3e69099923755207ef7f2a63ec69fa01a2ded989de65f3fb.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/b8101a42b38ac8ec5c6a9ae4225df1a899b6f79e9d9109d1caaaca12234e5f39.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/297ef99313a92add60cc97eabdb64e631dc140d9fad8f7b12151316ee927052d.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/8602db60abf946788e1fb807fe48545311673bb0fd69c402f43362e5ccadd382.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/a6237dae721f59496da2329fb877468c107ca41dfc8188eb9464f9897ee89594.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/676ae51b671af626be8985b919fb4f9875c14f9964c9e5f3ed08341ff8bbf5e1.jpg",
+        "intro": null,
+        "description": "Dance to your own beat with Just Dance\u00ae 2019, the ultimate dance game featuring 40 hot tracks from chart-topping hits to family favorites, including \"Havana\" by Camila Cabello, \"Bang Bang Bang\" by BIGBANG, \"No Tears Left To Cry\" by Ariana Grande, and many more! With a one-month trial of Just Dance Unlimited included, dance to more than 400 songs!\n\nYour Just Dance experience is now personalized as the game learns your dancing habits and suggests content!\n\nExperience eight exclusive choreographies created with the help of kids\u2019 development experts to encourage healthy movement. \n\nFeaturing seasonal and special-event content for an even more dynamic experience on a new curated homepage.  \n",
+        "languages": [
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "nl",
+            "pt",
+            "ru",
+            "ko",
+            "zh"
+        ],
+        "size": 8064598016
+    },
     "70010000010192": {
         "id": "010025400AECE000",
-        "rightsId": null,
+        "rightsId": "010025400AECE0000000000000000005",
         "name": "Fortnite",
         "version": null,
         "key": null,
@@ -1238,7 +1609,7 @@
         "developer": null,
         "publisher": "Epic Games",
         "frontBoxArt": null,
-        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/5a83ea2b4fc9fa42ca55a167a16e1393e518a3429b13d7ad3271d1b67e074780.jpg",
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/864b3a81c7401f40212e7d2580907438a854d2e3cf5c8af0ff92cedbaa1a293d.jpg",
         "screenshots": [
             "https://img-eshop.cdn.nintendo.net/i/0486729ca41dec242e1a2f8b93f69b5516db43602bbb0e853d9adf0c14afb162.jpg",
             "https://img-eshop.cdn.nintendo.net/i/1cb32fc97e185202534463634c48ac467cc6ba0edc157415ea75acc25b6b1ecd.jpg",
@@ -1247,7 +1618,7 @@
             "https://img-eshop.cdn.nintendo.net/i/d98af9011b7f3d89c65cd9b56f41e506f9c6671913b308567a2078881b6a35c2.jpg",
             "https://img-eshop.cdn.nintendo.net/i/79e37949351caeb2bfdb6733922630541b0dcf3ef70c38391e4104b9c6793640.jpg"
         ],
-        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/ce017cbd6b4383001b4830d75da2c7c2ec4d626a5c55ed381e070c36d3675736.jpg",
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/026a0abef9eff5e67a81c5beb7d4f30ec98be722c005ca44ee3eafd0f36e2c7a.jpg",
         "intro": "Squad up and play the #1 Battle Royale game! ",
         "description": "Jump in to be the last one standing in the free 100-player Battle Royale. Build huge forts. Outwit your opponents. Earn your Victory. Squad up together online with friends in the same room or around the world!\n\nBUILD & DESTROY - Shape the battlefield by building your own cover. Opponent hiding behind a wall? Take out their cover to get the edge.\n\nGEAR UP - Board the battle bus and drop in on your favorite zone. Gather resources, collect gear, and battle your opponents!\n\nSQUAD UP WITH FRIENDS - Team up online with your friends around the world or in the same room!\n\nWEEKLY UPDATES & EVENTS -  Updates constantly fuel the fun with new gameplay modes, outfits, weapons and items.\n\nPowered by Unreal Engine 4.",
         "languages": [
@@ -1261,7 +1632,7 @@
             "ru",
             "ko"
         ],
-        "size": 3149922304
+        "size": 4435476480
     },
     "70010000011664": {
         "id": "010096000B3EA000",
@@ -1312,7 +1683,7 @@
     },
     "70010000011853": {
         "id": "0100C1500B82E000",
-        "rightsId": null,
+        "rightsId": "0100C1500B82E0000000000000000005",
         "name": "The World Ends with You\u00ae: Final Remix",
         "version": null,
         "key": null,
@@ -1353,7 +1724,7 @@
     },
     "70010000012305": {
         "id": "01001B300B9BE000",
-        "rightsId": null,
+        "rightsId": "01001B300B9BE0000000000000000005",
         "name": "Diablo III: Eternal Collection",
         "version": null,
         "key": null,
@@ -1396,13 +1767,15 @@
             "fr",
             "de",
             "it",
-            "ru"
+            "ru",
+            "ko",
+            "zh"
         ],
-        "size": 14371782656
+        "size": 14572060672
     },
     "70010000012332": {
         "id": "01006A800016E000",
-        "rightsId": null,
+        "rightsId": "01006A800016E0000000000000000005",
         "name": "Super Smash Bros.\u2122 Ultimate",
         "version": null,
         "key": null,
@@ -1451,11 +1824,11 @@
             "ko",
             "zh"
         ],
-        "size": 14646509568
+        "size": 15278800896
     },
     "70010000012879": {
         "id": "0100D870045B6000",
-        "rightsId": null,
+        "rightsId": "0100D870045B60000000000000000005",
         "name": "Nintendo Entertainment System\u2122 - Nintendo Switch Online",
         "version": null,
         "key": null,
@@ -1494,11 +1867,11 @@
             "fr",
             "pt"
         ],
-        "size": 93323264
+        "size": 105906176
     },
     "70010000013704": {
         "id": "010044500C182000",
-        "rightsId": null,
+        "rightsId": "010044500C1820000000000000000005",
         "name": "Sid Meier\u2019s Civilization VI",
         "version": null,
         "key": null,
@@ -1547,7 +1920,7 @@
     },
     "70010000014081": {
         "id": "0100C9F009F7A000",
-        "rightsId": null,
+        "rightsId": "0100C9F009F7A0000000000000000005",
         "name": "Xenoblade Chronicles 2: Torna ~ The Golden Country",
         "version": null,
         "key": null,
@@ -1586,11 +1959,11 @@
             "es",
             "fr"
         ],
-        "size": 3523215360
+        "size": 3530555392
     },
     "70010000014158": {
         "id": "010036B0034E4000",
-        "rightsId": null,
+        "rightsId": "010036B0034E40000000000000000005",
         "name": "Super Mario Party\u2122",
         "version": null,
         "key": null,
@@ -1632,7 +2005,7 @@
     },
     "70010000014303": {
         "id": "01003A400C3DA000",
-        "rightsId": null,
+        "rightsId": "01003A400C3DA0000000000000000005",
         "name": "YouTube",
         "version": null,
         "key": null,
@@ -1676,11 +2049,115 @@
             "ko",
             "zh"
         ],
-        "size": 93323264
+        "size": 141557760
+    },
+    "70010000015123": {
+        "id": "010011600C946000",
+        "rightsId": null,
+        "name": "Travis Strikes Again: No More Heroes",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20190118,
+        "nsuId": 70010000015123,
+        "category": [
+            "Action",
+            "Multiplayer"
+        ],
+        "ratingContent": [
+            "Blood",
+            "Drug Reference",
+            "Partial Nudity",
+            "Strong Language",
+            "Violence"
+        ],
+        "numberOfPlayers": 2,
+        "rating": 17,
+        "developer": null,
+        "publisher": "Grasshopper Manufacture",
+        "frontBoxArt": null,
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/de0ae0748c28de16144def47c19b30f0f43b6d40d480ed6d7e34de0f375a990a.jpg",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/3cbb8f6db56e82436b12e20b3780e3c05acfb9c06c5f40b7bdee35291421722d.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/f370e2a4b834b5066c130245f00c4912f991673efe4dbf8a6818ea13be8a75f5.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/8da93ce00cd1fa42b0a0d8c001c8f1c8760e61597aa6e5a14f3c93e50b2b50ab.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/95a102daf459f23b50be5aa3ab1086faafa01ae235fdd7c0dc2a2eec6facd090.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/73cfdef82d0ac8a222fec014167bc176f831e2181ef2fca24aeba1ce015a712a.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/3a1932b55c39eb21a2a27176caf2885fdbd0641eaf5c7b5b45939d990821fc43.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/7b9694d9feaa48aa3df445dcc5df7a0eb8f07afcabc698a4bbfe4fc72b0375c9.jpg",
+        "intro": "Get into the game\u2014literally!\nBeam Katana in hand, \nTravis Strikes Again!",
+        "description": "Several years after No More Heroes 2... This time, the setting is a small town in the middle of nowhere in the American South. Badman shows up at the trailer Travis has been living in to exact revenge for the murder of his daughter, Bad Girl, and things go horribly wrong. As they battle it out, the two are sucked into the game world of the legendary game console, the Death Drive Mk\u2161. Developed by Dr. Juvenile, the Death Drive Mk\u2161 has six games contained on Death Balls. It\u2019s said that collecting all six and then beating each game allows the player to have one wish granted. Travis and Badman team up to use the Death Balls to bring Bad Girl back to life.\nIn the Adventure Part,  you can search for Death Balls (game software) and enjoy hilarious interactions between characters.\nPass a Joy-Con\u2122 to a friend and team up anytime, anywhere! By performing simultaneous Charge Attacks during co-op play, you can unleash the super-powerful co-op attack Choco Banana with Caramel Ice Cream.\nCollaborations with various indie games! You just may find your own favorite character!\nFeatures lots of laughs and iconic gags from the NMH series, such as saving your game on the toilet, etc.!\nDLC scheduled to make fan favorites playable! Stages also to be added!\nHit the road in an all new adventure with gaming's most hardcore otaku assassin.\nBeam Katana in hand, Travis Strikes Again! \n",
+        "languages": [
+            "ja",
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "zh"
+        ],
+        "size": 6209667072
+    },
+    "70030000005101": {
+        "id": null,
+        "rightsId": null,
+        "name": "Fitness Boxing eShop Demo",
+        "version": null,
+        "key": null,
+        "isDemo": true,
+        "region": null,
+        "releaseDate": null,
+        "nsuId": 70030000005101,
+        "category": null,
+        "ratingContent": [
+            "Mild Violence",
+            "Suggestive Themes"
+        ],
+        "numberOfPlayers": null,
+        "rating": 13,
+        "developer": null,
+        "publisher": null,
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": null,
+        "intro": null,
+        "description": null,
+        "languages": null,
+        "size": 461373440
+    },
+    "70030000005981": {
+        "id": null,
+        "rightsId": null,
+        "name": "Pok\u00e9mon: Let\u2019s Go, Pikachu! and Pok\u00e9mon: Let\u2019s Go, Eevee! Demo Version",
+        "version": null,
+        "key": null,
+        "isDemo": true,
+        "region": null,
+        "releaseDate": null,
+        "nsuId": 70030000005981,
+        "category": null,
+        "ratingContent": [
+            "Mild Cartoon Violence"
+        ],
+        "numberOfPlayers": null,
+        "rating": 6,
+        "developer": null,
+        "publisher": null,
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": null,
+        "intro": null,
+        "description": null,
+        "languages": null,
+        "size": 2387607552
     },
     "70050000000183": {
         "id": "01007EF00011F001",
-        "rightsId": null,
+        "rightsId": "01007EF00011F0010000000000000000",
         "name": "The Legend of Zelda: \nBreath of the Wild DLC Pack 1",
         "version": null,
         "key": null,
@@ -1709,7 +2186,7 @@
     },
     "70050000000184": {
         "id": "01007EF00011F002",
-        "rightsId": null,
+        "rightsId": "01007EF00011F0020000000000000000",
         "name": "The Legend of Zelda:\nBreath of the Wild DLC Pack 2",
         "version": null,
         "key": null,
@@ -1738,7 +2215,7 @@
     },
     "70050000001423": {
         "id": "0100F15003E65001",
-        "rightsId": null,
+        "rightsId": "0100F15003E650010000000000000003",
         "name": "Lucina's Bridal Costume",
         "version": null,
         "key": null,
@@ -1766,7 +2243,7 @@
     },
     "70050000001426": {
         "id": "0100F15003E65004",
-        "rightsId": null,
+        "rightsId": "0100F15003E650040000000000000003",
         "name": "Fire Emblem Awakening DLC Pack",
         "version": null,
         "key": null,
@@ -1790,11 +2267,11 @@
         "intro": null,
         "description": "This DLC is themed around Fire Emblem Awakening.\n\nNew Playable Characters:\nOwain, Tharja, and Olivia.\n\nThree new History Mode maps, each retelling a story from the Fire Emblem franchise.\n\nNew Costumes:\nChrom, Exalt; Lissa, Sage; and Cordelia, Dark Flier.\n\nNew Weapons:\nRobin, Thoron; Lissa, Lissa's Axe; Frederick, Frederick's Axe; Cordelia, Cordelia's Lance; Owain, Missiletainn; Tharja, Tharja's Hex; and Olivia, Olivia's Blade.\n\nBroken-Armor Models:\nChrom, Robin, Lissa, Frederick, Cordelia, Lucina, Owain, Tharja, and Olivia.",
         "languages": null,
-        "size": 1288699904
+        "size": 1291845632
     },
     "70050000001489": {
         "id": "0100F15003E65002",
-        "rightsId": null,
+        "rightsId": "0100F15003E650020000000000000003",
         "name": "Fire Emblem Fates DLC Pack",
         "version": null,
         "key": null,
@@ -1818,11 +2295,11 @@
         "intro": null,
         "description": "This DLC is themed around Fire Emblem Fates.\n\nNew Playable Characters:\nAzura, Oboro, and Niles.\n\nThree new History Mode maps, each retelling a story from the Fire Emblem franchise.\n\nNew Costumes:\nTakumi, Butler; Camilla, Maid; Corrin, Hoshido Noble (Female); Corrin, Nohr Noble (Male); and Azura, Dark Songstress.\n\nBroken-Armor Models:\nCorrin, Ryoma, Hinoka, Takumi, Sakura, Xander, Camilla, Leo, Elise, Azura, Oboro, and Niles.",
         "languages": null,
-        "size": 1225785344
+        "size": 1228931072
     },
     "70050000001490": {
         "id": "0100F15003E65003",
-        "rightsId": null,
+        "rightsId": "0100F15003E650030000000000000003",
         "name": "Fire Emblem: Shadow Dragon DLC Pack",
         "version": null,
         "key": null,
@@ -1846,11 +2323,11 @@
         "intro": null,
         "description": "This DLC is themed around Fire Emblem: Shadow Dragon.\n\nNew Playable Characters:\nNavarre, Minerva, and Linde.\n\nThree new History Mode maps, each retelling a story from the Fire Emblem franchise.\n\nNew Costumes:\nMarth, Bridegroom; Caeda, Bride; Tiki, Vibrant Dress; and Lyn, Swordmaster.\n\nNew Weapons:\nCaeda, Wing Spear; Tiki, Divinestone; Anna, Anna's Bow; Navarre, Wo Dao; Minerva, Hauteclere; and Linde, Aura.\n\nBroken-Armor Models:\nMarth, Caeda, Tiki, Celica, Lyn, Anna, Navarre, Minerva, and Linde.",
         "languages": null,
-        "size": 1071644672
+        "size": 1074790400
     },
     "70050000001721": {
         "id": "0100704000B3B001",
-        "rightsId": null,
+        "rightsId": "0100704000B3B0010000000000000003",
         "name": "Snipperclips\u2122 \u2013 Cut it out, together! DLC",
         "version": null,
         "key": null,
@@ -1877,11 +2354,11 @@
         "intro": "The hit puzzle game returns with even more laugh-out-loud fun!",
         "description": "Paper pals Snip and Clip must cut each other into the right shapes to overcome new obstacles in this new DLC update. Partner up with friends or family* to solve puzzles, including new comic book and toy box worlds, 3 new Blitz games, and a new stamp mode. Plus, play the original levels in new shapes!** ",
         "languages": null,
-        "size": 380633088
+        "size": 383778816
     },
     "70050000001861": {
         "id": "0100E95004039005",
-        "rightsId": null,
+        "rightsId": "0100E950040390050000000000000003",
         "name": "Helpful Items Pack",
         "version": null,
         "key": null,
@@ -1911,7 +2388,7 @@
     },
     "70050000001901": {
         "id": "0100E95004039002",
-        "rightsId": null,
+        "rightsId": "0100E950040390020000000000000000",
         "name": "New Quests Pack",
         "version": null,
         "key": null,
@@ -1941,7 +2418,7 @@
     },
     "70050000001902": {
         "id": "0100E95004039003",
-        "rightsId": null,
+        "rightsId": "0100E950040390030000000000000000",
         "name": "New Rare Blade Pack",
         "version": null,
         "key": null,
@@ -1971,7 +2448,7 @@
     },
     "70050000001903": {
         "id": "0100E95004039004",
-        "rightsId": null,
+        "rightsId": "0100E950040390040000000000000000",
         "name": "New Challenge Mode Pack",
         "version": null,
         "key": null,
@@ -2001,7 +2478,7 @@
     },
     "70050000001904": {
         "id": "0100E95004039001",
-        "rightsId": null,
+        "rightsId": "0100E950040390010000000000000000",
         "name": "Xenoblade Chronicles 2: Torna ~ The Golden Country",
         "version": null,
         "key": null,
@@ -2031,7 +2508,7 @@
     },
     "70050000002249": {
         "id": "0100B3F000BE3001",
-        "rightsId": null,
+        "rightsId": "0100B3F000BE30010000000000000003",
         "name": "Pokk\u00e9n Tournament DX Battle Pack Wave 1",
         "version": null,
         "key": null,
@@ -2059,7 +2536,7 @@
     },
     "70050000002861": {
         "id": "0100B3F000BE3002",
-        "rightsId": null,
+        "rightsId": "0100B3F000BE30020000000000000003",
         "name": "Pokk\u00e9n Tournament DX Battle Pack Wave 2",
         "version": null,
         "key": null,
@@ -2087,7 +2564,7 @@
     },
     "70050000004063": {
         "id": "01003BC0000A1065",
-        "rightsId": null,
+        "rightsId": "01003BC0000A10650000000000000004",
         "name": "Splatoon\u2122 2: Octo Expansion",
         "version": null,
         "key": null,
@@ -2115,7 +2592,7 @@
     },
     "70050000004341": {
         "id": "01003BC0000A1064",
-        "rightsId": null,
+        "rightsId": "01003BC0000A10640000000000000004",
         "name": "Bonus Octo-themed Gear",
         "version": null,
         "key": null,
@@ -2143,7 +2620,7 @@
     },
     "70050000005541": {
         "id": "01005D100807B001",
-        "rightsId": null,
+        "rightsId": "01005D100807B0010000000000000004",
         "name": "Expedition Pack",
         "version": null,
         "key": null,
@@ -2171,7 +2648,7 @@
     },
     "70050000005725": {
         "id": "01005D100807B002",
-        "rightsId": null,
+        "rightsId": "01005D100807B0020000000000000004",
         "name": "Great Expedition Pack",
         "version": null,
         "key": null,
@@ -2199,7 +2676,7 @@
     },
     "70050000005726": {
         "id": "01005D100807B003",
-        "rightsId": null,
+        "rightsId": "01005D100807B0030000000000000004",
         "name": "Ultra Expedition Pack",
         "version": null,
         "key": null,
@@ -2227,7 +2704,7 @@
     },
     "70050000005727": {
         "id": "01005D100807B005",
-        "rightsId": null,
+        "rightsId": "01005D100807B0050000000000000004",
         "name": "Scattershot Stone",
         "version": null,
         "key": null,
@@ -2255,7 +2732,7 @@
     },
     "70050000005728": {
         "id": "01005D100807B006",
-        "rightsId": null,
+        "rightsId": "01005D100807B0060000000000000004",
         "name": "Broadburst Stone",
         "version": null,
         "key": null,
@@ -2283,7 +2760,7 @@
     },
     "70050000005729": {
         "id": "01005D100807B007",
-        "rightsId": null,
+        "rightsId": "01005D100807B0070000000000000004",
         "name": "Whack-Whack Stone",
         "version": null,
         "key": null,
@@ -2311,7 +2788,7 @@
     },
     "70050000005730": {
         "id": "01005D100807B008",
-        "rightsId": null,
+        "rightsId": "01005D100807B0080000000000000004",
         "name": "Wait Less Stone",
         "version": null,
         "key": null,
@@ -2339,7 +2816,7 @@
     },
     "70050000005731": {
         "id": "01005D100807B009",
-        "rightsId": null,
+        "rightsId": "01005D100807B0090000000000000004",
         "name": "Stay Strong Stone",
         "version": null,
         "key": null,
@@ -2367,7 +2844,7 @@
     },
     "70050000005732": {
         "id": "01005D100807B00A",
-        "rightsId": null,
+        "rightsId": "01005D100807B00A0000000000000004",
         "name": "Sharing Stone",
         "version": null,
         "key": null,
@@ -2395,7 +2872,7 @@
     },
     "70050000007546": {
         "id": "010044500C183001",
-        "rightsId": null,
+        "rightsId": "010044500C1830010000000000000005",
         "name": "Civilization VI - Nubia Civilization & Scenario Pack",
         "version": null,
         "key": null,
@@ -2431,7 +2908,7 @@
     },
     "70050000007547": {
         "id": "010044500C183002",
-        "rightsId": null,
+        "rightsId": "010044500C1830020000000000000005",
         "name": "Civilization VI - Khmer and Indonesia Civilization & Scenario Pack",
         "version": null,
         "key": null,
@@ -2467,7 +2944,7 @@
     },
     "70050000007564": {
         "id": "0100E95004039006",
-        "rightsId": null,
+        "rightsId": "0100E950040390060000000000000005",
         "name": "Xenoblade Chronicles 2 \u2013 My Nintendo Bonus Items",
         "version": null,
         "key": null,
@@ -2497,7 +2974,7 @@
     },
     "70050000008041": {
         "id": "01001B300B9BF005",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0050000000000000005",
         "name": "French Language Pack",
         "version": null,
         "key": null,
@@ -2525,9 +3002,345 @@
         "languages": null,
         "size": 5722079232
     },
+    "70050000008085": {
+        "id": "01002CC003FE7003",
+        "rightsId": "01002CC003FE70030000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Lance Starship Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008085,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/f8c3ab48109f3ef492692ef9baf6165ce5a12fe8f471bca485a80c6c7eb6019b.jpg",
+        "intro": null,
+        "description": "This Starship Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\n* Starlink: Battle For Atlas game required to play. The Starlink: Battle for Atlas\u2122 Digital Lance Starship Pack* includes: \n-One digital Lance Starship\n-One digital Hunter Hakka Pilot\n-One digital Imploder Weapon\n\n*Starlink: Battle For Atlas game required to play. \n\nEquip your Imploder weapon to inflict critical damage to bosses and structures. The Lance's wings provide extra handling to make this Starship extremely nimble and acrobatic in a fight. Hunter's Pilot Ability, Shadow Strike, can be used to decimate groups of attackers or deal massive damage to a single target.*",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008086": {
+        "id": "01002CC003FE7004",
+        "rightsId": "01002CC003FE70040000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Nadir Starship Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008086,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/8f6d92f9f62620f05e90b01234d3c734710bc8bbbad5ab2bc2303769429cf98e.jpg",
+        "intro": null,
+        "description": "This Starship Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\n*Starlink: Battle For Atlas game required to play. The Starlink: Battle for Atlas\u2122 Digital Nadir Starship Pack includes: \n-One digital Nadir Starship\n-One digital Shaid Pilot\n-One digital Nullifier Weapon\n\n*Starlink: Battle For Atlas game required to play. \n\nTrap your enemies in a vortex with the Nullifier's homing missiles. Outmaneuver your enemies with this ship's superior thrust speed and handling. Shaid's Pilot Ability, Vanish, renders her starship invisible, allowing her to stage an ambush or make a stealthy escape.*",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008087": {
+        "id": "01002CC003FE7002",
+        "rightsId": "01002CC003FE70020000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Neptune Starship Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008087,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/12c68ce83a0030c73044b46903eaef6f7562a2c5d53332e80e95c0df6490865d.jpg",
+        "intro": null,
+        "description": "This Starship Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\n *Starlink: Battle For Atlas game required to play. The Starlink: Battle for Atlas\u2122 Digital Neptune Starship Pack* includes: \n-One digital Neptune Starship\n-One digital Judge Pilot\n-One digital Levitator Weapon\n\n*Starlink: Battle For Atlas Game required to play. \n\nEquip your Levitator weapon to fire homing siege missiles at your enemies. The Neptune is built to endure and deal heavy damage, making it an excellent choice for a tough fight. Judge's Pilot Ability, Time Shift, allows him to distort time and gives him unlimited Weapon Energy while activated.*",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008088": {
+        "id": "01002CC003FE7001",
+        "rightsId": "01002CC003FE70010000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Pulse Starship Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008088,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/6022068ca35a4fd19196b248fde592fd0aee9062bf01996138cdb119a5e38a6e.jpg",
+        "intro": null,
+        "description": "This Starship Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\n*Starlink: Battle For Atlas game required to play. The Starlink: Battle for Atlas\u2122 Digital Pulse Starship Pack* includes: \n-One digital Pulse Starship\n-One digital Calisto \"\"Chase\u201d Da Silva Pilot\n-One digital Volcano Weapon\n\n*Starlink: Battle For Atlas game required to play. \n\nEquip your Volcano weapon to precisely hit enemy weak points for critical damage. Pulse's wings are optimized for speed and handling, perfect for fast-paced combat. Chase's Pilot Ability, Overdrive, gives her starship increased speed and handling, unlimited boost, and immunity to crashes.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008089": {
+        "id": "01002CC003FE7008",
+        "rightsId": "01002CC003FE70080000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Eli Arborwood Pilot Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008089,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/9b444e89e426be19fa21b746d23e8686246671ddacec5434a4dc619f29e417e3.jpg",
+        "intro": null,
+        "description": "This Pilot Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nEli Arborwood is a mysterious old pilot who escaped a violent past by retreating to a simple prospector life.\n\n* Starlink: Battle For Atlas game required to play. This pack includes one digital Eli Arborwood Pilot.* \n\n* Starlink: Battle For Atlas Game required to play. Line up your shots in slow motion and launch a flurry of deadly projectiles with Gunslinger, Eli's unique Pilot Ability.* *This pack is included in the Deluxe Edition of Starlink: Battle for Atlas\u2122.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008090": {
+        "id": "01002CC003FE7006",
+        "rightsId": "01002CC003FE70060000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Kharl Zeon Pilot Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008090,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/507a564aeed8b08045e25318f334b87409a7a1c22059ca306e09d6a8f3b3daf9.jpg",
+        "intro": null,
+        "description": "This Pilot Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nKharl Zeon is a scatterbrained Expedition scientist whose quick-firing intellect often distracts him from everyday things like social niceties. \n\n* Starlink: Battle For Atlas game required to play. This pack includes one digital Kharl Zeon Pilot.* \n\n* Starlink: Battle For Atlas Game required to play. Create a swirling vortex shield that absorbs incoming damage with Kharl's unique Pilot Ability.* *This pack is included in the Deluxe Edition of Starlink: Battle for Atlas\u2122.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008091": {
+        "id": "01002CC003FE7005",
+        "rightsId": "01002CC003FE70050000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Levi McCray Pilot Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008091,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/4069786e9cfc9f6b68e60146113a995f01df24bacf0694d4602a8da6a683b5bb.jpg",
+        "intro": null,
+        "description": "This Pilot Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nLevi McCray is a West Coast daredevil, extreme sports athlete, and internet star. He has no boundaries and always has to be the center of attention.\n\n* Starlink: Battle For Atlas game required to play. This pack includes one digital Levi McCray Pilot.*\n\n*Starlink: Battle For Atlas\u2122 game required to play. Rush into danger, counting on luck and quick thinking to make it through with Levi's unique Pilot Ability, Danger Zone.* *This pack is included in the Digital and Deluxe Editions of Starlink: Battle for Atlas\u2122.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008092": {
+        "id": "01002CC003FE7007",
+        "rightsId": "01002CC003FE70070000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Razor Lemay Pilot Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008092,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/ac22ae322b398b17a679c853f73f9ad1a894f2bd436ffea6834eacc357ba016e.jpg",
+        "intro": null,
+        "description": "This Pilot Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nRazor Lemay is a trained fighter pilot and self-professed metalhead. Razor serves as the Equinox's mechanic and combat tactician.\n\n* Starlink: Battle For Atlas game required to play. This pack includes one digital Razor Lemay Pilot.*\n\n* Starlink: Battle For Atlas\u2122 Starter Pack required to play. Let loose devastating sonic assaults with Razor's unique Pilot Ability, Power Chord.* *This pack is included in the Digital and Deluxe Editions of Starlink: Battle for Atlas\u2122.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008093": {
+        "id": "01002CC003FE700A",
+        "rightsId": "01002CC003FE700A0000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Crusher Weapon Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008093,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/1dcb4609a0b425e9eb85f6995da7d3baa4c4b87c220f39ad9685b0ea1364d94b.jpg",
+        "intro": null,
+        "description": "This Weapon Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nCrusher creates gravity wells around its target, crushing it and pulling in nearby projectiles for extra damage. \n\nShredder Mk. 2 continuously fires projectiles, dealing extra damage when an enemy weak point is hit.\n\n*Starlink: Battle For Atlas game required to play. \n\nThe Starlink: Battle for Atlas\u2122 Digital Crusher Weapon Pack* includes: \n-One digital Crusher Weapon\n-One digital Shredder Mk. 2 Weapon Harness the powers of gravity and kinetic weapons to gain the advantage in battle.* \n\n*This pack is included in the Digital and Deluxe Editions of Starlink: Battle for Atlas\u2122.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008094": {
+        "id": "01002CC003FE700C",
+        "rightsId": "01002CC003FE700C0000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Hailstorm Weapon Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008094,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/af7b0c86b2810c0bef6eb7406b822c857710fc96454047595d1492f2384b64ff.jpg",
+        "intro": null,
+        "description": "This Weapon Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nHailstorm allows its wielder to fire short, accurate bursts of frost at their enemies. \n\nMeteor Mk. 2 projects an intense field of heat around its user, allowing you to ram into enemy ships for maximum destruction.\n\n*Starlink: Battle For Atlas game required to play. \n\nStarlink: Battle for Atlas\u2122 Digital Hailstorm Weapon Pack* includes: \n-One digital Hailstorm Weapon\n-One digital Meteor Mk. 2 Weapon Harness the powers of frost and fire to gain the advantage in battle. \n\n*This pack is included in the Deluxe Edition of Starlink: Battle for Atlas.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008095": {
+        "id": "01002CC003FE7009",
+        "rightsId": "01002CC003FE70090000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Iron Fist Weapon Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008095,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/35946f0475d7c08ee3b1caff56dd38ecd54a3a93c30be9c3b00584b2a4a5a3c2.jpg",
+        "intro": null,
+        "description": "This Weapon Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nIron Fist launches short-range shrapnel bursts to devastate your enemies. \n\nFreeze Ray Mk. 2 charges and releases a high-precision laser that encases targets in ice.\n\n*Starlink: Battle For Atlas game required to play. \n\nThe Starlink: Battle for Atlas\u2122 Digital Iron Fist Weapon Pack* includes: \n-One digital Iron Fist Weapon\n-One digital Freeze Ray Mk. 2 Weapon Harness the powers of frost and kinetic weapons to gain the advantage in battle. \n\n*This pack is included in the Digital and Deluxe Editions of Starlink: Battle for Atlas\u2122.",
+        "languages": null,
+        "size": 4194304
+    },
+    "70050000008096": {
+        "id": "01002CC003FE700B",
+        "rightsId": "01002CC003FE700B0000000000000005",
+        "name": "Starlink: Battle for Atlas\u2122 Digital Shockwave Weapon Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70050000008096,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/2b4d75cfb4b901b53d2323dfa6fc581e826a90db4f11847b2ed341fd01347b33.jpg",
+        "intro": null,
+        "description": "This Weapon Pack is included in the Starlink: Battle for Atlas\u2122 Collection 1 Pack. Check it out for the best way to complete your fleet!*\n\nShockwave allows its wielder to fire short-range waves of force to deal heavy damage. \n\nGauss Gun Mk. 2 fires with great precision, allowing pilots to aim at enemy weak points for critical damage.\n\n*Starlink: Battle For Atlas game required to play. \n\nThe Starlink: Battle for Atlas\u2122 Digital Shockwave Weapon Pack* includes: \nOne digital Shockwave Weapon\nOne digital Gauss Gun Mk. 2 Weapon Equip these cutting-edge kinetic weapons to gain the advantage in battle. \n\n*This pack is included in the Digital and Deluxe Editions of Starlink: Battle for Atlas\u2122.",
+        "languages": null,
+        "size": 4194304
+    },
     "70050000008181": {
         "id": "01003BC0000A1005",
-        "rightsId": null,
+        "rightsId": "01003BC0000A10050000000000000005",
         "name": "Splatoon\u2122 2  - Nintendo Switch Online Special Gear",
         "version": null,
         "key": null,
@@ -2555,7 +3368,7 @@
     },
     "70050000008182": {
         "id": "01001B300B9BF006",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0060000000000000005",
         "name": "Italian Language Pack",
         "version": null,
         "key": null,
@@ -2585,7 +3398,7 @@
     },
     "70050000008183": {
         "id": "01001B300B9BF003",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0030000000000000005",
         "name": "Castilian Spanish Language Pack",
         "version": null,
         "key": null,
@@ -2615,7 +3428,7 @@
     },
     "70050000008321": {
         "id": "01001B300B9BF004",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0040000000000000005",
         "name": "Latin American Spanish Language Pack",
         "version": null,
         "key": null,
@@ -2645,7 +3458,7 @@
     },
     "70050000008322": {
         "id": "01001B300B9BF007",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0070000000000000005",
         "name": "German Language Pack",
         "version": null,
         "key": null,
@@ -2675,7 +3488,7 @@
     },
     "70050000008323": {
         "id": "01001B300B9BF00A",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF00A0000000000000005",
         "name": "Russian Language Pack",
         "version": null,
         "key": null,
@@ -2705,7 +3518,7 @@
     },
     "70050000008324": {
         "id": "01001B300B9BF009",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0090000000000000005",
         "name": "Brazilian Portuguese Language Pack",
         "version": null,
         "key": null,
@@ -2735,7 +3548,7 @@
     },
     "70050000008325": {
         "id": "01001B300B9BF00E",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF00E0000000000000005",
         "name": "Polish Language Pack",
         "version": null,
         "key": null,
@@ -2765,7 +3578,7 @@
     },
     "70050000008326": {
         "id": "01001B300B9BF010",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0100000000000000005",
         "name": "Japanese Language Pack",
         "version": null,
         "key": null,
@@ -2795,13 +3608,13 @@
     },
     "70050000008421": {
         "id": "01006A800016F001",
-        "rightsId": null,
-        "name": "Limited Time Offer: Piranha Plant",
+        "rightsId": "01006A800016F0010000000000000005",
+        "name": "Super Smash Bros.\u2122 Ultimate: Piranha Plant Standalone Fighter",
         "version": null,
         "key": null,
         "isDemo": false,
         "region": null,
-        "releaseDate": 201902,
+        "releaseDate": 20190201,
         "nsuId": 70050000008421,
         "category": null,
         "ratingContent": [
@@ -2817,16 +3630,23 @@
         "publisher": "Nintendo",
         "frontBoxArt": null,
         "iconUrl": null,
-        "screenshots": null,
-        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/d22f1f2fb866424f88e38b511e521d0c364140c419c7b7555d16467b253259ac.jpg",
-        "intro": null,
-        "description": "This is the new fighter, Piranha Plant!",
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/0db1f41040a6829c0f6010c6cedef05c42017d24a9de1d257f91613977344efd.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/7b78619514a3890f643c63e9ff6eeecc80541d1ddd99a6ea198e6f0fd9c7d67f.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/d4c595daa00f49174c8108e96e83c33e95fe67e7a5a4de2d1e6a294d8cf07852.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/ebfd76854fd5d3ef9e9e81146eb7325a0b7f5e6e50e4491e9528657881ba0429.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/0a33ab9ebc23b0a236cb5cf6ef2d81f46e38816e2fe725b97e499057a3f35c5c.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/f6623e6868b357b05465df83af2ceee70e3d00df03154aa13f3c25da9f3aa513.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/90a546fb548a83a52dd187f2f5a850b35aff34df9be4b19b001256106c6b0cc8.jpg",
+        "intro": "Piranha Plant joins the battle!",
+        "description": "Piranha Plant joins the battle as a stand-alone fighter in the Super Smash Bros.\u2122 Ultimate game! With its powerful bite, Poison Breath, and ability to call in Petey Piranha for a larger-than-life Final Smash, this fighter\u2019s ferocity is as sharp as its teeth. Ready your pipes and flowerpots; your opponent won\u2019t see you coming! (Then again, Piranha Plant doesn\u2019t really \u201csee\u201d either. It doesn\u2019t have eyes.)\n\nPlayers who purchased and registered the game before January 31, 2019 have until June 30, 2019 to redeem their codes and receive Piranha Plant for free. Players who did not qualify for the early purchase bonus can purchase Piranha Plant in the Nintendo eShop for $4.99 USD.\n\nNote: Piranha Plant is not a part of the Super Smash Bros. Ultimate Fighters Pass. Therefore, this fighter does not come with a stage or selection of music.",
         "languages": null,
         "size": 4194304
     },
     "70050000008422": {
         "id": "01006A800016F002",
-        "rightsId": null,
+        "rightsId": "01006A800016F0020000000000000005",
         "name": "Challenger Pack 1",
         "version": null,
         "key": null,
@@ -2839,7 +3659,8 @@
             "Cartoon Violence",
             "Comic Mischief",
             "Suggestive Themes",
-            "Users Interact"
+            "Users Interact",
+            "In-Game Purchases"
         ],
         "numberOfPlayers": null,
         "rating": 10,
@@ -2856,7 +3677,7 @@
     },
     "70050000008423": {
         "id": "01006A800016F003",
-        "rightsId": null,
+        "rightsId": "01006A800016F0030000000000000005",
         "name": "Challenger Pack 2",
         "version": null,
         "key": null,
@@ -2869,7 +3690,8 @@
             "Cartoon Violence",
             "Comic Mischief",
             "Suggestive Themes",
-            "Users Interact"
+            "Users Interact",
+            "In-Game Purchases"
         ],
         "numberOfPlayers": null,
         "rating": 10,
@@ -2886,7 +3708,7 @@
     },
     "70050000008424": {
         "id": "01006A800016F004",
-        "rightsId": null,
+        "rightsId": "01006A800016F0040000000000000005",
         "name": "Challenger Pack 3",
         "version": null,
         "key": null,
@@ -2899,7 +3721,8 @@
             "Cartoon Violence",
             "Comic Mischief",
             "Suggestive Themes",
-            "Users Interact"
+            "Users Interact",
+            "In-Game Purchases"
         ],
         "numberOfPlayers": null,
         "rating": 10,
@@ -2916,7 +3739,7 @@
     },
     "70050000008425": {
         "id": "01006A800016F005",
-        "rightsId": null,
+        "rightsId": "01006A800016F0050000000000000005",
         "name": "Challenger Pack 4",
         "version": null,
         "key": null,
@@ -2929,7 +3752,8 @@
             "Cartoon Violence",
             "Comic Mischief",
             "Suggestive Themes",
-            "Users Interact"
+            "Users Interact",
+            "In-Game Purchases"
         ],
         "numberOfPlayers": null,
         "rating": 10,
@@ -2946,7 +3770,7 @@
     },
     "70050000008426": {
         "id": "01006A800016F006",
-        "rightsId": null,
+        "rightsId": "01006A800016F0060000000000000005",
         "name": "Challenger Pack 5",
         "version": null,
         "key": null,
@@ -2959,7 +3783,8 @@
             "Cartoon Violence",
             "Comic Mischief",
             "Suggestive Themes",
-            "Users Interact"
+            "Users Interact",
+            "In-Game Purchases"
         ],
         "numberOfPlayers": null,
         "rating": 10,
@@ -2976,7 +3801,7 @@
     },
     "70050000008427": {
         "id": "01006A800016F015",
-        "rightsId": null,
+        "rightsId": "01006A800016F0150000000000000005",
         "name": "Super Smash Bros. Ultimate Fighters Pass Bonus Mii Fighter Costume (Rex)",
         "version": null,
         "key": null,
@@ -3006,7 +3831,7 @@
     },
     "70050000009021": {
         "id": "01001B300B9BF001",
-        "rightsId": null,
+        "rightsId": "01001B300B9BF0010000000000000005",
         "name": "UK English Language Pack",
         "version": null,
         "key": null,
@@ -3034,91 +3859,331 @@
         "languages": null,
         "size": 5384437760
     },
-    "70070000000481": {
-        "id": null,
-        "rightsId": null,
-        "name": null,
+    "70050000009321": {
+        "id": "010011600C947001",
+        "rightsId": "010011600C9470010000000000000007",
+        "name": "Travis Strikes Again: No More Heroes - DLC #1",
         "version": null,
         "key": null,
         "isDemo": false,
         "region": null,
-        "releaseDate": null,
-        "nsuId": 70070000000481,
+        "releaseDate": 20190228,
+        "nsuId": 70050000009321,
         "category": null,
-        "ratingContent": null,
+        "ratingContent": [
+            "Blood",
+            "Drug Reference",
+            "Partial Nudity",
+            "Strong Language",
+            "Violence"
+        ],
         "numberOfPlayers": null,
-        "rating": null,
+        "rating": 17,
         "developer": null,
-        "publisher": null,
+        "publisher": "Grasshopper Manufacture",
         "frontBoxArt": null,
         "iconUrl": null,
         "screenshots": null,
-        "bannerUrl": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/a65a2085debe248c9bf3c6564602b7bb6ad7d5d57b1525ee06a7c69554e0f781.jpg",
         "intro": null,
-        "description": null,
+        "description": "This pack of downloadable content contains:\n\u25cf One New Playable Character\n\u25cf Two Skills Specific to the New Character\n\u25cf A New Text Adventure\n\nAdditional information to follow at a later date.",
         "languages": null,
-        "size": 0
+        "size": 6291456
+    },
+    "70050000009322": {
+        "id": "010011600C947002",
+        "rightsId": "010011600C9470020000000000000007",
+        "name": "Travis Strikes Again: No More Heroes - DLC #2",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20190430,
+        "nsuId": 70050000009322,
+        "category": null,
+        "ratingContent": [
+            "Blood",
+            "Drug Reference",
+            "Partial Nudity",
+            "Strong Language",
+            "Violence"
+        ],
+        "numberOfPlayers": null,
+        "rating": 17,
+        "developer": null,
+        "publisher": "Grasshopper Manufacture",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/027111e7449f37aa9c9cb141c52a50341d52dca33a9e4a156c56f1aa401cd79b.jpg",
+        "intro": null,
+        "description": "Available by April 30, 2019\n- Bad Girl (playable after completing game)\n- 2 Bad Girl-only skills\n- Killer Marathon level expansion\n- New skill (unlocked by completing Killer Marathon)\n- Travis Strikes Back New Scenario\n                                                                ",
+        "languages": null,
+        "size": 6291456
+    },
+    "70050000009585": {
+        "id": "01001B300B9BF00C",
+        "rightsId": "01001B300B9BF00C0000000000000007",
+        "name": "Traditional Chinese Language Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20190115,
+        "nsuId": 70050000009585,
+        "category": null,
+        "ratingContent": [
+            "Blood and Gore",
+            "Partial Nudity",
+            "Violence",
+            "Users Interact"
+        ],
+        "numberOfPlayers": null,
+        "rating": 17,
+        "developer": null,
+        "publisher": "Blizzard",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/9d8f95e20b59b76eab1a74aaefdabbabe6438b6761efc4efa6306dde638987f3.jpg",
+        "intro": null,
+        "description": "Optional downloadable Traditional Chinese Language Pack for Diablo 3: Eternal Collection on Nintendo Switch.",
+        "languages": null,
+        "size": 5736759296
+    },
+    "70050000009952": {
+        "id": "01001B300B9BF008",
+        "rightsId": "01001B300B9BF0080000000000000007",
+        "name": "Korean Language Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20190115,
+        "nsuId": 70050000009952,
+        "category": null,
+        "ratingContent": [
+            "Blood and Gore",
+            "Partial Nudity",
+            "Violence",
+            "Users Interact"
+        ],
+        "numberOfPlayers": null,
+        "rating": 17,
+        "developer": null,
+        "publisher": "Blizzard",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/9d8f95e20b59b76eab1a74aaefdabbabe6438b6761efc4efa6306dde638987f3.jpg",
+        "intro": null,
+        "description": "Optional downloadable Korean Language Pack for Diablo 3: Eternal Collection on Nintendo Switch.",
+        "languages": null,
+        "size": 5613027328
+    },
+    "70070000000481": {
+        "id": null,
+        "rightsId": null,
+        "name": "Fire Emblem Warriors + Season Pass Bundle",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20171020,
+        "nsuId": 70070000000481,
+        "category": null,
+        "ratingContent": [
+            "Suggestive Themes",
+            "Violence"
+        ],
+        "numberOfPlayers": null,
+        "rating": 13,
+        "developer": null,
+        "publisher": "Nintendo",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/04197d113f2de56b35ef91e4f05d0d92b4e2ec3806d26ab377ec4135150fcfa6.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/e3c556702ad3c486b28a3b5ffefde2f6baea7439541d321c49a636cea61cc321.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/23dadcd8294b9d3a053a81eb970ea7219bb83756e976b76dc4912ea355dbbbd4.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/5c3ce7a3b829495ac0c04af35b4023695b057d2698fa589d4d20ecd9c9bef92e.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/0afe3d0f30805cb523e82d785e9b653619a21c5e46b1fcd2f14546e3ed041751.jpg",
+        "intro": null,
+        "description": "Clash with legions of enemies as Marth, Xander, Corrin, Chrom, and other Fire Emblem warriors by unleashing over-the-top-powerful Dynasty Warriors-style moves. Take control of characters with distinct attacks, issue strategic commands, pair up warriors for stunning moves, and more in an epic tactical action game from the Hyrule Warriors team.\n\nIn the Kingdom of Aytolis, new heroes mystically collide with warriors from across the history of Fire Emblem\u2122, who must band together to face countless enemies and restore the mysterious Shield of Flames to stop the Chaos Dragon. Advance the story to unlock additional playable characters, each with different attacks, weapons, combos, and voiced dialogue. A combination of intense combat and strategic Fire Emblem gameplay offers a take on battling that\u2019s new to the series. Change between heroes anywhere on the battlefield and command them to victory. The materials and gold you earn in battle can be used to upgrade heroes, weapons, and more.",
+        "languages": null,
+        "size": 17980981248
     },
     "70070000000661": {
         "id": null,
         "rightsId": null,
-        "name": null,
+        "name": "Xenoblade Chronicles\u2122 2 and Xenoblade Chronicles\u2122 2 Expansion Pass Bundle",
         "version": null,
         "key": null,
         "isDemo": false,
         "region": null,
-        "releaseDate": null,
+        "releaseDate": 20171201,
         "nsuId": 70070000000661,
         "category": null,
-        "ratingContent": null,
+        "ratingContent": [
+            "Language",
+            "Suggestive Themes",
+            "Use of Alcohol and Tobacco",
+            "Violence"
+        ],
         "numberOfPlayers": null,
-        "rating": null,
+        "rating": 13,
         "developer": null,
-        "publisher": null,
+        "publisher": "Nintendo",
         "frontBoxArt": null,
         "iconUrl": null,
         "screenshots": null,
-        "bannerUrl": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/54c1bf81827fa82f8579cf6e21a862f986e45fc959ea416599d6390658164084.jpg",
         "intro": null,
-        "description": null,
+        "description": "Lost in a sea of clouds, entire civilizations rest on the backs of Titans. As the giant beasts march toward death, the last hope is a scavenger named Rex\u2014and Pyra, a living weapon known as a Blade. Can you find the fabled paradise she calls home? Command a group of Blades and lead them to countless strategic victories before the world ends. Purchase this bundle to own both Xenoblade Chronicles 2 and the Expansion Pass.\n\nWith the Xenoblade Chronicles 2 Expansion Pass, you\u2019ll gain access to some titanic new content, including new Rare Blades such as Shulk and Fiora, bonus items, new quests, Challenge Battle mode, and the new stand-alone game, Xenoblade Chronicles\u2122 2: Torna ~ The Golden Country! \n",
         "languages": null,
-        "size": 0
+        "size": 18202230784
     },
     "70070000000701": {
         "id": null,
         "rightsId": null,
-        "name": null,
+        "name": "Snipperclips\u2122 \u2013 Cut it out, together! bundle",
         "version": null,
         "key": null,
         "isDemo": false,
         "region": null,
-        "releaseDate": null,
+        "releaseDate": 20171110,
         "nsuId": 70070000000701,
         "category": null,
-        "ratingContent": null,
+        "ratingContent": [],
         "numberOfPlayers": null,
-        "rating": null,
+        "rating": 6,
         "developer": null,
-        "publisher": null,
+        "publisher": "Nintendo",
         "frontBoxArt": null,
         "iconUrl": null,
-        "screenshots": null,
-        "bannerUrl": null,
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/b15a4b5e2621dcd0ce4f3378dbed23e7eed7b2ded0858de1554a113b76b39c0a.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/cc27a6c667add511508e82b689e864107404b1580de2ecb7f8982667b36acccc.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/bc200150ba1b91199b5fcf8226cb93cf93940e18fa9633d5a082184686eb10ac.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/b433457c8027aa776b2c0bec3f46e325eb0e48613fda321fbbe7cc28a9ce132a.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/c478c5418a7a0e5877bc9c4ece9bd02d6cc6bada5abc5261763a81c5aae6ebbc.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/a85504b475761ae6a889366530dee7752f0c4987ff95182439a2d5f0bb8432e8.jpg",
         "intro": null,
-        "description": null,
+        "description": "Paper pals Snip and Clip must cut each other up to overcome tricky obstacles\u2026or just to laugh their heads off. Partner up with friends or family to cut the heroes into the right shapes, interact with objects, and solve a world of imaginative puzzles. Purchase this bundle to own both Snipperclips and the new downloadable content!*",
         "languages": null,
-        "size": 0
+        "size": 1969225728
     },
     "70070000000783": {
         "id": null,
         "rightsId": null,
+        "name": "The Legend of Zelda\u2122: Breath of the Wild and The Legend of Zelda\u2122: Breath of the Wild Expansion Pass Bundle",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20171208,
+        "nsuId": 70070000000783,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "Mild Suggestive Themes",
+            "Use of Alcohol"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Nintendo",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/b478fce889ed0237b252978f046884121f6be959f5b4b62e4fc03970bd617647.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/68f832d604ad2a85fa3dda00ae5345232fe271e01df40a48bb1fb2ed291f92f4.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/a620666fbd007341ed3f0051bc7028e2ad116115c6dc12809849e7e3be857a95.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/33c609fa2cff48f0bc2c71ac922174f3951551815b8a429406fb3281f1483c0d.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/16304df4fdabb5674cc31edcc80ff1260ffe0f98156c300f31ecb490f18b632c.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/b01aadeae5525d2ce7ec371b8fb06f1e711e091dd28c1a825cda4cae74db6001.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/3f5e3bdc13985085be376c34f993119838990863c05f331a2827f6d410daa609.jpg",
+        "intro": null,
+        "description": "The Legend of Zelda\u2122: Breath of the Wild game packs countless hours of play into a vast world of discovery. That makes it an ideal foundation for more adventures! This special bundle comes with the full game for the Nintendo Switch\u2122 system and the Expansion Pass, which grants access to three new treasure chests, The Master Trials DLC Pack 1, and The Champions Ballad DLC Pack 2.\n\nThe Master Trials DLC Pack 1 contains a new challenge called the Cave of Trials, a new Master mode, a new feature called Hero\u2019s Path mode, and more. The Champions Ballad DLC Pack 2 adds in a new dungeon, new story elements about the four Champions and Princess Zelda, plus even more challenges and shrines. The Expansion Pass will also come with a variety of gear and armor items based on previous Legend of Zelda\u2122 series games. Indeed, a world as alive as Hyrule must grow with time. If you live for the thrill of discovery, look no further: this Expansion Pass is the stuff of legends.",
+        "languages": null,
+        "size": 16853762048
+    },
+    "70070000001041": {
+        "id": null,
+        "rightsId": null,
+        "name": "Pokk\u00e9n Tournament DX + Pokk\u00e9n Tournament DX Battle Pack",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20180111,
+        "nsuId": 70070000001041,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "Online Interactions Not Rated by the ESRB"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Nintendo",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/96c598080e4ad6cc83c459277a24f16fc5865b759305cd48cc2a1fadce80d971.jpg",
+        "intro": null,
+        "description": "Introducing the first Pok\u00e9mon title for the Nintendo Switch console. Take direct control of one of 21 prized Pok\u00e9mon fighters to defeat other Pok\u00e9mon in arena fights. Call upon Support Pok\u00e9mon to assist in the fight, then unleash your Pok\u00e9mon's unique Burst Attack to climb atop the ranks. \n\nWith all new modes and new ways to battle with friends, this is your chance to become champion of the Ferrum Region!\n\nPurchase this bundle to own both Pokk\u00e9n Tournament DX and the Pokk\u00e9n Tournament DX Battle Pack.\n",
+        "languages": null,
+        "size": 4262461440
+    },
+    "70070000003245": {
+        "id": null,
+        "rightsId": null,
+        "name": "Starlink: Battle for Atlas\u2122 Deluxe Edition",
+        "version": null,
+        "key": null,
+        "isDemo": false,
+        "region": null,
+        "releaseDate": 20181213,
+        "nsuId": 70070000003245,
+        "category": null,
+        "ratingContent": [
+            "Fantasy Violence",
+            "In-Game Purchases"
+        ],
+        "numberOfPlayers": null,
+        "rating": 10,
+        "developer": null,
+        "publisher": "Ubisoft",
+        "frontBoxArt": null,
+        "iconUrl": null,
+        "screenshots": [
+            "https://img-eshop.cdn.nintendo.net/i/bad4b3dc327f73960ba3d978e53abea6fd239b95b7a4d7101d4ff1300d99eccf.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/6ce5dfb269e9ca6c1190eb89fd7806cf60bc1052b1fbc2894107070d7eb29a7e.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/0f2609b329679b0d7cfa1735055106b3cc772c230bd859f098abc45438827a2b.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/85995cda89e07eecfe35e209f5e04914f6bf2b32b6ed6a5618db1ff5a0c419cc.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/247ae2c66116c1f48c6406ec750982b88ff4bd9b175c94d1663db16a415fc5a9.jpg",
+            "https://img-eshop.cdn.nintendo.net/i/b44b69971813c744e1685496406fd62d0463d63f7e263f200d352eee160d6194.jpg"
+        ],
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/c67bc243673640e095957cfa0096674ac0b241cbafe4a5621037e46965609fd2.jpg",
+        "intro": null,
+        "description": "Lead a group of interstellar pilots dedicated to free the Atlas Star System from Grax and the Forgotten Legion.\n\nStart your adventure with the full first collection of the Starlink Fleet to defeat Grax with the Starlink: Battle for Atlas\u2122 game, 6 Starships, 10 Pilots, and 15 Weapons included. \n\nStarships:\nArwing\nZenith\nNeptune\nPulse\nLance\nNadir \n\nPilots:\nFox McCloud\nMason Rana \nLevi McCray\nJudge\nChase da Silva\nHunter Hakka\nShaid\nRazor Lemay\nEli Arborwood\nKharl Zeon \n\nWeapons:\nFlamethrower \nFrost Barrage \nShredder\nIron Fist\nCrusher\nShockwave\nHailstorm\nLevitator\nVolcano\nImploder\nNullifier Missiles\nFreeze Ray Mk.2\nShredder Mk.2\nGauss Gun Mk.2\nMeteor Mk.2 \n\nMix and match parts to customize your starship, and build your own playstyle with unique pilot abilities and weapons. Nintendo Switch\u2122 System exclusive: Fox McCloud Pilot, Arwing Ship, and exclusive missions!",
+        "languages": null,
+        "size": 14170456064
+    },
+    "70070000003621": {
+        "id": null,
+        "rightsId": null,
         "name": null,
         "version": null,
         "key": null,
         "isDemo": false,
         "region": null,
         "releaseDate": null,
-        "nsuId": 70070000000783,
+        "nsuId": 70070000003621,
         "category": null,
         "ratingContent": null,
         "numberOfPlayers": null,
@@ -3134,29 +4199,35 @@
         "languages": null,
         "size": 0
     },
-    "70070000001041": {
+    "70070000004223": {
         "id": null,
         "rightsId": null,
-        "name": null,
+        "name": "Travis Strikes Again: No More Heroes - Digital Bundle",
         "version": null,
         "key": null,
         "isDemo": false,
         "region": null,
-        "releaseDate": null,
-        "nsuId": 70070000001041,
+        "releaseDate": 20190118,
+        "nsuId": 70070000004223,
         "category": null,
-        "ratingContent": null,
+        "ratingContent": [
+            "Blood",
+            "Drug Reference",
+            "Partial Nudity",
+            "Strong Language",
+            "Violence"
+        ],
         "numberOfPlayers": null,
-        "rating": null,
+        "rating": 17,
         "developer": null,
-        "publisher": null,
+        "publisher": "Grasshopper Manufacture",
         "frontBoxArt": null,
         "iconUrl": null,
         "screenshots": null,
-        "bannerUrl": null,
-        "intro": null,
-        "description": null,
+        "bannerUrl": "https://img-eshop.cdn.nintendo.net/i/f7d2d4060267d2e77f665821b6acd79a5315c8f39c5566a98ff95a94efe48516.jpg",
+        "intro": "Get into the game\u2014literally!\nBeam Katana in hand, \nTravis Strikes Again!",
+        "description": "Travis Strikes Again: No More Heroes - Digital Bundle includes the main game plus the Season Pass.\n\n\u25bcTravis Strikes Again: No More Heroes\nSeveral years after No More Heroes 2... This time, the setting is a small town in the middle of nowhere in the American South. Badman shows up at the trailer Travis has been living in to exact revenge for the murder of his daughter, Bad Girl, and things go horribly wrong. As they battle it out, the two are sucked into the game world of the legendary game console, the Death Drive Mk\u2161.\n\nPass a Joy-Con\u2122 to a friend and team up anytime, anywhere! \nCollaborations with various indie games!\nFeatures lots of laughs and iconic gags from the NMH series, such as saving your game on the toilet!\n\nHit the road in an all new adventure with gaming's most hardcore otaku assassin.\nBeam Katana in hand, Travis Strikes Again! \n\n\u25bcTravis Strikes Again: No More Heroes - SEASON PASS\n\nAvailable by February 28, 2019\n- Shinobu (playable after completing game)\n- 2 Shinobu-only skills\n- Badman Strikes Back Adventure\n\nAvailable by April 30, 2019\n- Bad Girl (playable after completing game)\n- 2 Bad Girl-only skills\n- Killer Marathon level expansion\n- New skill (unlocked by completing Killer Marathon)\n- Travis Strikes Back New Scenario",
         "languages": null,
-        "size": 0
+        "size": 6222249984
     }
 }

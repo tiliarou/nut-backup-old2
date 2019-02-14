@@ -1,7 +1,7 @@
-import aes128
-import Title
-import Titles
-import Hex
+from nut import aes128
+from nut import Title
+from nut import Titles
+from nut import Hex
 from binascii import hexlify as hx, unhexlify as uhx
 from struct import pack as pk, unpack as upk
 from hashlib import sha256
@@ -9,10 +9,10 @@ import Fs.Type
 import os
 import re
 import pathlib
-import Keys
-import Config
-import Print
-import Nsps
+from nut import Keys
+from nut import Config
+from nut import Print
+from nut import Nsps
 from tqdm import tqdm
 import Fs
 from Fs.File import File
@@ -141,6 +141,8 @@ class NcaHeader(File):
 		else:
 			self.titleKeyDec = self.key()
 
+		return True
+
 	def key(self):
 		return self.keys[2]
 		return self.keys[self.cryptoType]
@@ -256,7 +258,8 @@ class Nca(File):
 		Print.info(tabs + 'key Index: ' + str(self.header.keyIndex))
 		#Print.info(tabs + 'key Block: ' + str(self.header.getKeyBlock()))
 		for key in self.header.keys:
-			Print.info(tabs + 'key Block: ' + str(hx(key)))
+			if key:
+				Print.info(tabs + 'key Block: ' + str(hx(key)))
 		
 		if(indent+1 < maxDepth):
 			Print.info('\n%sPartitions:' % (tabs))

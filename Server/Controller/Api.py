@@ -1,18 +1,18 @@
-import Titles
+from nut import Titles
 import json
-import Titles
-import Status
-import Nsps
-import Print
+from nut import Titles
+from nut import Status
+from nut import Nsps
+from nut import Print
 import Server
-import Config
-import Hex
+from nut import Config
+from nut import Hex
 import socket
 import struct
 import time
 import nut
 import cdn
-import blockchain
+from nut import blockchain
 import urllib.parse
 import requests
 
@@ -53,7 +53,7 @@ def getSearch(request, response):
 	for k, t in Titles.items():
 		f = t.getLatestFile()
 		if f and f.hasValidTicket and (region == None or t.region in region) and (dlc == None or t.isDLC == dlc) and (update == None or t.isUpdate == update) and (demo == None or t.isDemo == demo) and (publisher == None or t.publisher in publisher):
-			o.append({'id': t.id, 'name': t.name, 'version': int(f.version) if f.version else None , 'region': t.region,'size': f.getFileSize(), 'mtime': f.getFileModified() })
+			o.append({'id': t.getId(), 'name': t.getName(), 'version': int(f.version) if f.version else None , 'region': t.getRegion(),'size': f.getFileSize(), 'mtime': f.getFileModified() })
 	response.write(json.dumps(o))
 
 def getTitles(request, response):
@@ -213,9 +213,10 @@ def getDownload(request, response, start = None, end = None):
 		response.attachFile(nsp.titleId + '.nsp')
 
 		if len(request.bits) >= 5:
-			start = int(request.bits[3])
-			end = int(request.bits[4])
+			start = int(request.bits[-2])
+			end = int(request.bits[-1])
 	
+		#chunkSize = 0x1000000
 		chunkSize = 0x400000
 
 		with open(nsp.path, "rb") as f:
@@ -234,8 +235,8 @@ def getDownload(request, response, start = None, end = None):
 				else:
 					start = int(start)
 
-				if start >= size or end > size or start < 0 or end <= 0:
-					return Server.Response400(request, response, 'Invalid range request')
+				if start >= size or start < 0 or end <= 0:
+					return Server.Response400(request, response, 'Invalid range request %d - %d' % (start, end))
 
 				response.setStatus(206)
 
@@ -266,16 +267,20 @@ def getDownload(request, response, start = None, end = None):
 				size = end - start
 
 				i = 0
+				status = Status.create(size, 'Downloading ' + os.path.basename(nsp.path))
 
 				while i < size:
 					chunk = f.read(min(size-i, chunkSize))
 					i += len(chunk)
+
+					status.add(len(chunk))
 
 					if chunk:
 						pass
 						response.write(chunk)
 					else:
 						break
+				status.close()
 	except BaseException as e:
 		Print.error('NSP download exception: ' + str(e))
 	if response.bytesSent == 0:

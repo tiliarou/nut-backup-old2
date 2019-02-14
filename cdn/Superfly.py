@@ -17,16 +17,16 @@ from binascii import hexlify as hx, unhexlify as uhx
 from hashlib import sha256
 from struct import pack as pk, unpack as upk
 from io import TextIOWrapper
-import Titles
+from nut import Titles
 import requests
 import unidecode
 import urllib3
-import Print
-import Status
-import Config
+from nut import Print
+from nut import Status
+from nut import Config
 import os
 import hashlib
-import Title
+from nut import Title
 import cdn
 
 
@@ -49,7 +49,7 @@ def makeRequest(method, url, hdArgs={}):
 
 	return r
 
-def makeJsonRequest(method, url, hdArgs={}, key = None):
+def makeJsonRequest(method, url, hdArgs={}, key = None, force = False):
 
 	os.makedirs('cache/superfly/', exist_ok=True)
 	cacheFileName = 'cache/superfly/' + hashlib.md5(url.encode()).hexdigest()
@@ -60,7 +60,7 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 	j = None
 
-	if cdn.isValidCache(cacheFileName):
+	if cdn.isValidCache(cacheFileName) and not force:
 		if not key:
 			with open(cacheFileName, encoding="utf-8-sig") as f:
 				j = json.loads(f.read())
@@ -70,7 +70,7 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 	if key:
 		cacheFileName = key
-		if cdn.isValidCache(cacheFileName):
+		if cdn.isValidCache(cacheFileName) and not force:
 			with open(key, encoding="utf-8-sig") as f:
 				j = json.loads(f.read())
 
@@ -95,7 +95,7 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 def getAddOns(titleId, shop_id=3):
 	url = 'https://superfly.hac.%s.d4c.nintendo.net/v1/a/%s/dv' % (Config.cdn.environment, titleId)
-	j = makeJsonRequest('GET', url, {}, '%d/a/%s/dv.json' % (shop_id, titleId))
+	j = makeJsonRequest('GET', url, {}, '%d/a/%s/dv.json' % (shop_id, titleId), force = False)
 	lst = []
 
 	if not j:

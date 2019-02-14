@@ -17,16 +17,16 @@ from binascii import hexlify as hx, unhexlify as uhx
 from hashlib import sha256
 from struct import pack as pk, unpack as upk
 from io import TextIOWrapper
-import Titles
+from nut import Titles
 import requests
 import unidecode
 import urllib3
-import Print
-import Status
-import Config
+from nut import Print
+from nut import Status
+from nut import Config
 import os
 import hashlib
-import Title
+from nut import Title
 import cdn.Superfly
 import cdn
 
@@ -50,7 +50,7 @@ def makeRequest(method, url, hdArgs={}):
 
 	return r
 
-def makeJsonRequest(method, url, hdArgs={}, key = None):
+def makeJsonRequest(method, url, hdArgs={}, key = None, force = False, expiration = None):
 	os.makedirs('cache/bugyo/', exist_ok=True)
 	cacheFileName = 'cache/bugyo/' + hashlib.md5(url.encode()).hexdigest()
 
@@ -59,7 +59,7 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 	j = None
 
-	if cdn.isValidCache(cacheFileName):
+	if ((expiration == None and cdn.isValidCache(cacheFileName)) or (expiration != None and cdn.isValidCache(cacheFileName, expiration))) and not force:
 		if not key:
 			with open(cacheFileName, encoding="utf-8-sig") as f:
 				j = json.loads(f.read())
@@ -69,7 +69,7 @@ def makeJsonRequest(method, url, hdArgs={}, key = None):
 
 	if key:
 		cacheFileName = key
-		if cdn.isValidCache(cacheFileName):
+		if cdn.isValidCache(cacheFileName) and not force:
 			with open(key, encoding="utf-8-sig") as f:
 				j = json.loads(f.read())
 
@@ -126,7 +126,7 @@ def scrapeTitles(region = 'US', shop_id = 4):
 		scrapeLangTitles(region, language, shop_id)
 	Titles.save()
 
-def scrapeLangTitles(region = 'US', language = 'en', shop_id = 4):
+def scrapeLangTitles(region = 'US', language = 'en', shop_id = 4, force = False):
 	Print.info('Scraping %s %s' % (region, language))
 	pageSize = 50
 	offset = 0
@@ -135,7 +135,7 @@ def scrapeLangTitles(region = 'US', language = 'en', shop_id = 4):
 	while offset < total:
 		url = 'https://bugyo.hac.%s.eshop.nintendo.net/shogun/v1/titles?shop_id=%d&lang=%s&country=%s&sort=new&limit=%d&offset=%d' % (Config.cdn.environment, shop_id, language, region, pageSize, offset)
 		#print(url)
-		j = makeJsonRequest('GET', url, {}, '%d/%s/%s/titles/index/%d-%d.json' % (shop_id, language, region, pageSize, offset))
+		j = makeJsonRequest('GET', url, {}, '%d/%s/%s/titles/index/%d-%d.json' % (shop_id, language, region, pageSize, offset), force = False)
 
 		if not j:
 			break
@@ -144,32 +144,7 @@ def scrapeLangTitles(region = 'US', language = 'en', shop_id = 4):
 
 		try:
 			for i in j['contents']:
-				title = Titles.getNsuid(i['id'], region, language)
-				n = getTitleByNsuid(i['id'], region, language)
-
-				title.parseShogunJson(n, region, language, True)
-
-				try:
-					if n and "applications" in n and len(n["applications"]) > 0:
-						titleId = n["applications"][0]["id"].upper()
-
-						if titleId:
-							title.setId(titleId)
-
-							for x in cdn.Superfly.getAddOns(titleId):
-								getNsuIds(x, 'aoc', region, language)
-
-
-							scrapeDlc(i['id'], region, language)
-						else:
-							print('Could not get title json!')
-					else:
-						#print('no title id found in json!')
-						pass
-				except Exception as e:
-					print(str(e))
-					raise
-					pass
+				scrapeTitle(i['id'], region, language, shop_id)
 
 		except Exception as e:
 			print(str(e))
@@ -179,6 +154,41 @@ def scrapeLangTitles(region = 'US', language = 'en', shop_id = 4):
 		offset = offset + len(j['contents'])
 
 	Titles.saveRegion(region, language)
+
+def scrapeTitle(nsuid, region = 'US', language = 'en', shop_id = 3):
+	title = Titles.getNsuid(nsuid, region, language)
+	n = getTitleByNsuid(nsuid, region, language)
+
+	title.parseShogunJson(n, region, language, True)
+
+	try:
+		if n and "applications" in n and len(n["applications"]) > 0:
+			titleId = n["applications"][0]["id"].upper()
+
+			if titleId:
+				title.setId(titleId)
+
+				for x in cdn.Superfly.getAddOns(titleId):
+					if not x.endswith('800'):
+						getNsuIds(x, 'aoc', region, language)
+
+
+				scrapeDlc(nsuid, region, language)
+			else:
+				print('Could not get title json!')
+		else:
+			#print('no title id found in json!')
+			pass
+
+		if n and "demos" in n:
+			for d in n["demos"]:
+				if "id" in d:
+					scrapeTitle(d["id"], region, language, shop_id)
+		return title
+	except Exception as e:
+		print(str(e))
+		raise
+		return None
 
 def scrapeDlc(baseNsuid, region = 'US', language = 'en', shop_id = 3):
 
@@ -218,9 +228,19 @@ def scrapeDlc(baseNsuid, region = 'US', language = 'en', shop_id = 3):
 		offset = offset + len(j['contents'])
 		
 def getTitleByNsuid(nsuId, region = 'US', language = 'en', shop_id = 3):
-
-	url = 'https://bugyo.hac.%s.eshop.nintendo.net/shogun/v1/titles/%d?shop_id=%d&lang=%s&country=%s' % (Config.cdn.environment, nsuId, shop_id, language, region)
-	j = makeJsonRequest('GET', url, {}, '%d/%s/%s/titles/%d.json' % (shop_id, language, region, nsuId))
+	bit = str(nsuId)[0:4]
+	if bit == '7003':
+		type = 'demos'
+	elif bit == '7001':
+		type = 'titles'
+	elif bit == '7005':
+		type = 'aocs'
+	elif bit == '7007':
+		type = 'bundles'
+	else:
+		type = 'titles'
+	url = 'https://bugyo.hac.%s.eshop.nintendo.net/shogun/v1/%s/%d?shop_id=%d&lang=%s&country=%s' % (Config.cdn.environment, type, nsuId, shop_id, language, region)
+	j = makeJsonRequest('GET', url, {}, '%d/%s/%s/%s/%d.json' % (shop_id, language, region, type, nsuId))
 
 	return j
 
@@ -233,7 +253,7 @@ def getDlcByNsuid(nsuId, region = 'US', language = 'en', shop_id = 3):
 
 def ids(titleIds, type='title', region = 'US', language = 'en', shop_id = 4):
 	url = 'https://bugyo.hac.%s.eshop.nintendo.net/shogun/v1/contents/ids?shop_id=%d&lang=%s&country=%s&type=%s&title_ids=%s' % (Config.cdn.environment, shop_id, language, region, type, titleIds)
-	j = makeJsonRequest('GET', url, {},  '%d/%s/%s/contents/ids/%s.%s.json' % (shop_id, language, region, titleIds, type))
+	j = makeJsonRequest('GET', url, {},  '%d/%s/%s/contents/ids/%s.%s.json' % (shop_id, language, region, titleIds, type), False, 0)
 	return j
 
 def getNsuIds(titleIds, type='title', region = 'US', language = 'en', shop_id = 4):
@@ -248,10 +268,10 @@ def getNsuIds(titleIds, type='title', region = 'US', language = 'en', shop_id = 
 			title = Titles.getNsuid(nsuId, region, language)
 			title.setId(titleId)
 
-
 			try:
+				pass
 				if title.isDLC:
-					title.parseShogunJson(getDlcByNsuid(nsuId, region, language), region, language, True)
+					title.parseShogunJson(getTitleByNsuid(nsuId, region, language), region, language, True)
 				elif not title.isUpdate:
 					title.parseShogunJson(getTitleByNsuid(nsuId, region, language), region, language, True)
 			except:
