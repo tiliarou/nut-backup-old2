@@ -38,10 +38,6 @@ if os.path.isfile('titledb/redirectCache.json'):
 	with open('titledb/redirectCache.json', encoding="utf-8-sig") as f:
 		urlCache = json.loads(f.read())
 
-if os.path.isfile('titledb/titleRedirects.json'):
-	with open('titledb/titleRedirects.json', encoding="utf-8-sig") as f:
-		titleRedirects = json.loads(f.read())
-
 def grabCachedRedirectUrl(url, cookies = None):
 	global grabUrlInit
 	global urlCache
@@ -163,7 +159,7 @@ class Title:
 		if not regionTitle.name or not regionTitle.id:
 			return
 		for k,v in regionTitle.__dict__.items():
-			if k in ('id', 'version', 'regions', 'nsuId', 'key'):
+			if k in ('id', 'version', 'regions', 'key'):
 				continue
 			setattr(self, k, v)
 			self.setId(self.id)
@@ -260,9 +256,10 @@ class Title:
 			pass
 
 	def setNsuId(self, nsuId):
-		self.nsuId = nsuId
 		if nsuId:
-			self.isDemo = str(nsuId)[0:4] == '7003'
+			self.nsuId = int(nsuId)
+			if nsuId:
+				self.isDemo = str(nsuId)[0:4] == '7003'
 
 	def setRightsId(self, rightsId):
 		if not id:
@@ -641,9 +638,6 @@ class Title:
 		try:
 			if (not delta or not self.bannerUrl):
 				id = self.id
-
-				if id in titleRedirects:
-					id = titleRedirects[id]
 
 				cookies = {'esrb.verified': 'true'}
 				for region in ['JP', 'AU']:

@@ -309,7 +309,7 @@ def decrypt_NCA(fPath, outDir=''):
 		Print.debug(commandLine)
 		subprocess.check_output(commandLine, shell=True)
 		if os.listdir(outDir) == []:
-			raise subprocess.CalledProcessError('Decryption failed, output folder %s is empty!' % outDir)
+			raise subprocess.CalledProcessError('Decryption failed, output folder %s is empty!' % outDir, cmd = commandLine)
 	except subprocess.CalledProcessError:
 		Print.error('Decryption failed!')
 		raise
@@ -462,7 +462,8 @@ def download_title(gameDir, titleId, ver, tkey=None, nspRepack=False, n='', veri
 				NCAs[type].append(download_file(url, fPath, titleId))
 				if verify:
 					if calc_sha256(fPath) != CNMT.parse(CNMT.ncaTypes[type])[ncaID][2]:
-						Print.error('%s is corrupted, hashes don\'t match!' % os.path.basename(fPath))
+						os.remove(fPath)
+						raise BaseException('%s is corrupted, hashes don\'t match!' % os.path.basename(fPath))
 					else:
 						Print.info('Verified %s...' % os.path.basename(fPath))
 
